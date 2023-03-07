@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 User.destroy_all
 Child.destroy_all
 Filiation.destroy_all
@@ -13,15 +5,16 @@ Post.destroy_all
 ChildPost.destroy_all
 
 nounou = User.create(first_name: "clem", last_name: "dlt", email: "clementine@gmail.com", password: "azerty", role: 0)
-
 papa = User.create(first_name: "Julie", last_name: "Tms", email: "julie@gmail.com", password: "azerty", role: 1)
 maman = User.create(first_name: "Baptiste", last_name: "Tms", email: "baptiste@gmail.com", password: "azerty", role: 1)
 enfant = Child.create(first_name: "Alix", last_name: "Tms", birthdate: Date.new(2021,02,12))
+
 puts "ok"
 
 famille = Filiation.create(child_id: enfant.id , user_id: papa.id)
 
 puts "ok ok"
+
 famille2 = Filiation.create(child_id: enfant.id, user_id: maman.id)
 affiliation = Filiation.create(child_id: enfant.id, user_id: nounou.id)
 
