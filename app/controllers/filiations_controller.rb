@@ -1,4 +1,5 @@
 class FialiationsController < ApplicationController
+  before_action :set_filiations, only: %i[update]
 
   def create
     @filiation = Filiation.new(filiations_params)
