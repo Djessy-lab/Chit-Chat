@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   has_many :children, through: :child_posts
 
   validates :content, presence: true
+
+  has_many_attached :photos
 end
