@@ -2,13 +2,16 @@ class CommentsController < ApplicationController
   before_action :set_comments, only: %i[update destroy]
 
   def create
-    raise
+    posts_index
     @comment = Comment.new(comments_params)
     @post = Post.find(params[:post_id])
     @comment.post = @post
-    @user = User.find(params[:user_id])
-    @comment.user = @user
-    @comment.save
+    @comment.user = current_user
+    if @comment.save
+      redirect_to posts_path(@post)
+    else
+      render "posts/index", status: :unprocessable_entity
+    end
   end
 
   def update
@@ -18,7 +21,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to comments_path, status: :see_other
+    redirect_to posts_path(@post)
   end
 
   private
@@ -28,6 +31,18 @@ class CommentsController < ApplicationController
   end
 
   def comments_params
-    params.require(:comment).permit(:content, :user_id, :post_id)
+    params.require(:comment).permit(:content)
+  end
+
+  def posts_index
+    if current_user.nanny?
+      @posts = current_user.posts
+    else
+      @posts = current_user.my_posts
+    end
+    @post = Post.new
+    @post_like = PostLike.new
+    @comment = Comment.new
+    @comment_like = CommentLike.new
   end
 end

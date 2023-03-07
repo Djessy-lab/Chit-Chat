@@ -16,10 +16,7 @@
       <p><%= link_to "Unlike", post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete } %></p>
     <% end %>
     <!-- new comment -->
-    <%= simple_form_for [post, @comment] do |f| %>
-      <%= f.input :content, label: "Commentaire" %>
-      <%= f.button :submit, "valider" %>
-    <% end %>
+    <%= render "comments/form", post: post, comment: @comment %>
     <!-- likes -->
     <% if post.post_likes.size > 0 %>
       <p><%= post.post_likes.size %> likes </p>
@@ -27,6 +24,13 @@
      <!-- comments -->
     <% post.comments.each do |comment| %>
       <%= comment.content %>
+      <% if comment.user == current_user %>
+        <p><%= link_to "Supprimer ce commentaire", comment_path(comment), data: { turbo_method: :delete } %></p>
+      <% end %>
+      <!-- likes -->
+      <% if comment.comment_likes.size > 0 %>
+        <p><%= post.comment_likes.size %> likes </p>
+      <% end %>
       <!-- new comment_like -->
       <%= simple_form_for [comment, @comment_like] do |f| %>
         <%= f.button :submit, "like" %>
