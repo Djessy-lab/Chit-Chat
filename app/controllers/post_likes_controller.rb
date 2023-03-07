@@ -4,11 +4,8 @@ class PostLikesController < ApplicationController
   def create
     @post_like = PostLike.new
     @post_like.post = @post
-    if @post_like.save
-      redirect_to posts_path(@post)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @post_like.save
+    redirect_to posts_path(@post)
   end
 
   def destroy
