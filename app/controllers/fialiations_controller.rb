@@ -1,0 +1,2 @@
+class FialiationsController < ApplicationController
+end
