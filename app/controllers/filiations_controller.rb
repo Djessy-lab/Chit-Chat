@@ -1,4 +1,4 @@
-class FialiationsController < ApplicationController
+class FiliationsController < ApplicationController
   before_action :set_filiations, only: %i[update]
 
   def create
@@ -11,8 +11,8 @@ class FialiationsController < ApplicationController
   end
 
   def update
-    @filiation.update(filiations_params)
-    redirect_to posts_path
+    @filiation.update(progress: :accepted)
+    redirect_to @filiation.user
   end
 
   private
