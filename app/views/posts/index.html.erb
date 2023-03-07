@@ -1,0 +1,31 @@
+<!-- Posts#Index -->
+<% @posts.each do |post| %>
+  <div>
+    <!-- photos -->
+    <%# <% post.photos.each do |photo| %>
+      <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%# end %>
+    <!-- content -->
+    <%= post.content %>
+    <!-- comments -->
+    <% post.comments.each do |comment| %>
+      <%= comment.content %>
+    <% end %>
+    <!-- likes -->
+    <% if post.post_likes.size > 0 %>
+      <p><%= post.post_likes.size %> likes </p>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+<!-- Posts#New - A mettre dans la modal -->
+<% if current_user.nanny? %>
+  <h2>Créer un nouveau post</h2>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :content %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>
