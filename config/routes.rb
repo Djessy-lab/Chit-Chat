@@ -6,18 +6,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :posts, only: %i[index create update destroy] do
-    resources :child_posts, only: %i[create]
+  resources :posts, only: %i[index create update destroy], shallow: true do
     resources :comments, only: %i[create]
-    resources :post_likes, only: %i[create]
+    resources :post_likes, only: %i[create destroy]
   end
-  resources :comments, only: %i[update destroy] do
-    resources :comment_likes, only: %i[create]
+  resources :comments, only: %i[update destroy], shallow: true do
+    resources :comment_likes, only: %i[create destroy]
   end
-  resources :post_likes, only: %i[destroy]
-  resources :comment_likes, only: %i[destroy]
-  resources :children, only: %i[create destroy] do
-    resources :filiations, only: %i[create]
+  resources :children, only: %i[create destroy], shallow: true do
+    resources :filiations, only: %i[create update]
   end
-  resources :filiations, only: %i[update]
 end
