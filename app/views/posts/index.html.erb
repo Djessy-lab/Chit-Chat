@@ -2,18 +2,35 @@
 <% @posts.each do |post| %>
   <div>
     <!-- photos -->
-    <%# <% post.photos.each do |photo| %>
-      <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <%# end %>
+    <% post.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <!-- content -->
     <%= post.content %>
-    <!-- comments -->
-    <% post.comments.each do |comment| %>
-      <%= comment.content %>
+    <!-- new post_like -->
+    <% if PostLike.where(post: post, user: current_user).size == 0 %>
+      <%= simple_form_for [post, @post_like] do |f| %>
+        <%= f.button :submit, "like" %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Unlike", post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete } %></p>
+    <% end %>
+    <!-- new comment -->
+    <%= simple_form_for [post, @comment] do |f| %>
+      <%= f.input :content, label: "Commentaire" %>
+      <%= f.button :submit, "valider" %>
     <% end %>
     <!-- likes -->
     <% if post.post_likes.size > 0 %>
       <p><%= post.post_likes.size %> likes </p>
+    <% end %>
+     <!-- comments -->
+    <% post.comments.each do |comment| %>
+      <%= comment.content %>
+      <!-- new comment_like -->
+      <%= simple_form_for [comment, @comment_like] do |f| %>
+        <%= f.button :submit, "like" %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
