@@ -1,0 +1,8 @@
+<% if current_user.nanny? %>
+  <h2>Créer un nouveau post</h2>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :content %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>
