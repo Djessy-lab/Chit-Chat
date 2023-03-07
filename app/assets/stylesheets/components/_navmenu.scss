@@ -1,0 +1,10 @@
+.navmenu {
+  justify-content: space-between;
+  background: $main-green;
+  z-index: 10;
+  bottom: 0;
+  position: fixed;
+  height: 50px;
+  width: 388px;
+  flex-grow: 0;
+}
