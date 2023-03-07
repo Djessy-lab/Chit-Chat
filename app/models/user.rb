@@ -13,4 +13,6 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   enum role: { nanny: 0, family: 1 }
+
+  has_one_attached :photo
 end
