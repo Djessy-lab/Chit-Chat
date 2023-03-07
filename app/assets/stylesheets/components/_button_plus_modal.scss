@@ -1,0 +1,13 @@
+.plus {
+  background-color: $green;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.plus:hover {
+  border: 1px solid;
+  color: $green;
+  transition: all .3s;
+}

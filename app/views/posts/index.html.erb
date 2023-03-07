@@ -36,13 +36,26 @@
 <% end %>
 
 
+<!-- Button trigger modal -->
+<button type="button" class="btn plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  +
+</button>
 
-<!-- Posts#New - A mettre dans la modal -->
-<% if current_user.nanny? %>
-  <h2>Créer un nouveau post</h2>
-  <%= simple_form_for @post do |f| %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :content %>
-    <%= f.button :submit, "valider" %>
-  <% end %>
-<% end %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
