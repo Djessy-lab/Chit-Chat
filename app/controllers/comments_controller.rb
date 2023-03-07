@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comments, only: %i[update destroy]
 
   def create
+    raise
     @comment = Comment.new(comments_params)
     @post = Post.find(params[:post_id])
     @comment.post = @post

@@ -2,30 +2,60 @@
 <% @posts.each do |post| %>
   <div>
     <!-- photos -->
-    <%# <% post.photos.each do |photo| %>
-      <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <%# end %>
+    <% post.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <!-- content -->
     <%= post.content %>
-    <!-- comments -->
-    <% post.comments.each do |comment| %>
-      <%= comment.content %>
+    <!-- new post_like -->
+    <% if PostLike.where(post: post, user: current_user).size == 0 %>
+      <%= simple_form_for [post, @post_like] do |f| %>
+        <%= f.button :submit, "like" %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Unlike", post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete } %></p>
+    <% end %>
+    <!-- new comment -->
+    <%= simple_form_for [post, @comment] do |f| %>
+      <%= f.input :content, label: "Commentaire" %>
+      <%= f.button :submit, "valider" %>
     <% end %>
     <!-- likes -->
     <% if post.post_likes.size > 0 %>
       <p><%= post.post_likes.size %> likes </p>
     <% end %>
+     <!-- comments -->
+    <% post.comments.each do |comment| %>
+      <%= comment.content %>
+      <!-- new comment_like -->
+      <%= simple_form_for [comment, @comment_like] do |f| %>
+        <%= f.button :submit, "like" %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 
 
+<!-- Button trigger modal -->
+<button type="button" class="btn plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  +
+</button>
 
-<!-- Posts#New - A mettre dans la modal -->
-<% if current_user.nanny? %>
-  <h2>Créer un nouveau post</h2>
-  <%= simple_form_for @post do |f| %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :content %>
-    <%= f.button :submit %>
-  <% end %>
-<% end %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

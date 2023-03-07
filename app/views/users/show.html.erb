@@ -1,0 +1,8 @@
+<h2>PROFIL</h2>
+
+<%= @user.first_name  %> <%= @user.last_name %>
+<br>
+<%= @user.role %>
+<% if @user.nanny?  %>
+<p> super vous etes nanny </p>
+<% end %>
