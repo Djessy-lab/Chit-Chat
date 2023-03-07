@@ -1,2 +1,0 @@
-class ChildPostsController < ApplicationController
-end
