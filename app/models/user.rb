@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :role, presence: true
+
+  enum role: { nanny: 0, family: 1 }
 end
