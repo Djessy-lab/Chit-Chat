@@ -15,4 +15,17 @@ class PostsController < ApplicationController
     # action comment_likes#new
     @comment_like = CommentLike.new
   end
+
+  def create
+    @post = Post.new(posts_params)
+    @post.user = current_user
+    @post.save
+    redirect_to posts_path
+  end
+
+  private
+
+  def posts_params
+    params.require(:post).permit(:content, photos: [])
+  end
 end
