@@ -14,25 +14,6 @@ p {
 
 }
 
-
-.card-com-like {
-  display: flex;
-  flex-direction: row;
-  height: 20px;
-  font-size: $com-font-size;
-  color: $grey;
-  border-top: 1px solid $card-border-grey;
-  padding-top: 5px;
-
-  .btn {
-    color: $grey;
-  }
-
-  input {
-    font-size: $com-font-size;
-  }
-}
-
 .post-content {
   margin: 8px 0;
 
