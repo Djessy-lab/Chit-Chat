@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     end
     # action posts#new
     @post = Post.new
+    # action child_post
+    @child_post = ChildPost.new
     # action post_likes#new
     @post_like = PostLike.new
     # action comments#new
@@ -23,9 +25,20 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def update
+    @post.update(posts_params)
+    redirect_to posts_path
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
   private
 
   def posts_params
-    params.require(:post).permit(:content, photos: [])
+    params.require(:post).permit(:content, photos: [], child_ids: [])
   end
 end

@@ -1,6 +1,5 @@
 <div class="container">
   <h2>PROFIL</h2>
-
   <%= cl_image_tag @user.photo.key, height: 40, crop: :thumb, gravity: :face%>
   <br>
   <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
@@ -17,11 +16,10 @@
     <% end %>
   <% end %>
   <br>
-
   <h4>Ma garderie</h4>
   <% @filiations.each do |filiation| %>
     <%= filiation.child.first_name %>
     <%= cl_image_tag filiation.child.photo.key, height: 40, crop: :thumb, gravity: :face%>
   <% end %>
-
 </div>
+

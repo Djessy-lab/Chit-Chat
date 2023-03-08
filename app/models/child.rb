@@ -9,4 +9,8 @@ class Child < ApplicationRecord
   validates :birthdate, presence: true
 
   has_one_attached :photo
+
+  def name
+    "#{first_name} - #{last_name}"
+  end
 end
