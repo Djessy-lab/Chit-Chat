@@ -6,7 +6,7 @@
     <% end %>
   <% else %>
     <div class="card-unlike">
-      <%= link_to "<i class="fa-solid fa-heart icon-green'></i> J'aime".html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
+      <%= link_to "<i class='fa-solid fa-heart icon-green'></i> J'aime".html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
     </div>
   <% end %>
   <%= render "comments/form", post: post, comment: comment %>
