@@ -33,4 +33,8 @@ a {
   color: $grey;
   padding: 0;
   margin: 0;
+
+  &:hover {
+    color: $main-green;
+  }
 }
