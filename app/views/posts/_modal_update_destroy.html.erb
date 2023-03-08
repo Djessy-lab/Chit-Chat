@@ -1,5 +1,8 @@
 <!-- Button -->
-<button type="button"  data-bs-toggle="modal" data-bs-target="#updatePost<%=post.id%>">Modifier ce post</button>
+<div class="icons-update-delete">
+  <p class="card-icon" data-bs-toggle="modal" data-bs-target="#updatePost<%=post.id%>"><i class="fa-regular fa-pen-to-square"></i></p>
+  <p class="card-icon"><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, post_path(post), data: { turbo_method: :delete } %></p>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="updatePost<%=post.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

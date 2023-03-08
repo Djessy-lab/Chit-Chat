@@ -3,13 +3,8 @@
   <div class="card-container">
     <!-- photos -->
     <%= render "posts/photos", post: post %>
-    <!-- content -->
+    <!-- content avec dedans render du update/destroy-->
     <%= render "posts/content", post: post %>
-    <!-- Update/destroy post -->
-    <% if post.user == current_user %>
-      <%= render "posts/modal_update", post: post %>
-      <p><%= link_to "Supprimer ce post", post_path(post), data: { turbo_method: :delete } %></p>
-    <% end %>
     <!-- new post_like & comments -->
     <%= render "posts/add_like_comment", post: post, post_like: @post_like, comment: @comment %>
     <!-- see post_like & comments -->
