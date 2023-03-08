@@ -1,8 +1,0 @@
-<% if current_user.nanny? %>
-  <%= simple_form_for post do |f| %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :content %>
-    <%= f.association :children, as: :check_boxes, collection: current_user.children %>
-    <%= f.button :submit %>
-  <% end %>
-<% end %>

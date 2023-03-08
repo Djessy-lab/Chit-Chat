@@ -2,56 +2,18 @@
 <% @posts.each do |post| %>
   <div class="card-container">
     <!-- photos -->
-    <% post.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill, class: "card-image" %>
-    <% end %>
+    <%= render "posts/photos", post: post %>
     <!-- content -->
-    <%= post.content %>
-    <% post.children.each do |post| %>
-      <%= post.first_name %>
-    <% end %>
+    <%= render "posts/content", post: post %>
     <!-- Update/destroy post -->
     <% if post.user == current_user %>
-        <%= render "posts/modal_update", post: post %>
-        <p><%= link_to "Supprimer ce post", post_path(post), data: { turbo_method: :delete } %></p>
-      <% end %>
-    <!-- new post_like -->
-    <div class="card-com-like">
-      <% if PostLike.where(post: post, user: current_user).size == 0 %>
-        <%= simple_form_for [post, @post_like] do |f| %>
-          <i class="fa-solid fa-baby-carriage"></i>
-          <%= f.button :submit, "like" %>
-        <% end %>
-      <% else %>
-        <p><%= link_to "Unlike", post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete } %></p>
-      <% end %>
-      <!-- new comment -->
-      <%= render "comments/form", post: post, comment: @comment %>
-      <!-- likes -->
-      <% if post.post_likes.size > 0 %>
-        <p><%= post.post_likes.size %> likes </p>
-      <% end %>
-      <!-- comments -->
-      <% post.comments.each do |comment| %>
-        <%= comment.content %>
-        <!-- new comment_like -->
-        <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
-          <%= simple_form_for [comment, @comment_like] do |f| %>
-            <%= f.button :submit, "like" %>
-          <% end %>
-        <% else %>
-          <p><%= link_to "Unlike", comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete } %></p>
-        <% end %>
-        <!-- likes -->
-        <% if comment.comment_likes.size > 0 %>
-          <p><%= comment.comment_likes.size %> likes </p>
-        <% end %>
-        <!-- destroy comment -->
-        <% if comment.user == current_user %>
-          <p><%= link_to "Supprimer ce commentaire", comment_path(comment), data: { turbo_method: :delete } %></p>
-        <% end %>
-      <% end %>
-    </div>
+      <%= render "posts/modal_update", post: post %>
+      <p><%= link_to "Supprimer ce post", post_path(post), data: { turbo_method: :delete } %></p>
+    <% end %>
+    <!-- new post_like & comments -->
+    <%= render "posts/add_like_comment", post: post, post_like: @post_like, comment: @comment %>
+    <!-- see post_like & comments -->
+    <%= render "posts/see_like_comment", post: post, comment_like: @comment_like %>
   </div>
 <% end %>
 
