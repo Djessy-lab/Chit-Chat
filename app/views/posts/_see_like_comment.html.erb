@@ -18,14 +18,14 @@
     <!-- new comment_like -->
     <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
       <%= simple_form_for [comment, comment_like] do |f| %>
-        <%= f.button :submit, "like" %>
+        <%= f.button :submit, "J'aime" %>
       <% end %>
     <% else %>
-      <p><%= link_to "Unlike", comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete } %></p>
+      <p><%= link_to "J'aime", comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete } %></p>
     <% end %>
     <!-- likes comments -->
     <% if comment.comment_likes.size > 0 %>
-      <p><%= comment.comment_likes.size %> likes </p>
+      <p><%= comment.comment_likes.size %> J'aime </p>
     <% end %>
     <!-- destroy comment -->
     <% if comment.user == current_user %>

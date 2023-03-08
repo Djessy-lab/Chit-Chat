@@ -11,7 +11,12 @@ class FiliationsController < ApplicationController
   end
 
   def update
-    @filiation.update(progress: params[:commit])
+    if params[:commit] == "Accepter"
+      progress = :accepted
+    else
+      progress = :declined
+    end
+    @filiation.update(progress:)
     redirect_to @filiation.user
   end
 

@@ -15,6 +15,7 @@
 .main-container {
   display: flex;
   flex-direction: column;
+  min-height: 844px;
   height: 844px;
   width: 390px;
   margin: 0 auto;
@@ -32,4 +33,8 @@ a {
   color: $grey;
   padding: 0;
   margin: 0;
+
+  &:hover {
+    color: $main-green;
+  }
 }

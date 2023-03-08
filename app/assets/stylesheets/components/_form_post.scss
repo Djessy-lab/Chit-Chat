@@ -10,3 +10,15 @@
   margin-left: 10px;
   min-height: 10px;
 }
+
+.valider {
+  color: $grey;
+  border-radius: $border-radius;
+  background-color: $button-green;
+  padding:  6px 10px;
+
+  &:hover {
+    border: 1px solid $button-green;
+    color: $button-green;
+  }
+}
