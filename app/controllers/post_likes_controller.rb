@@ -6,7 +6,7 @@ class PostLikesController < ApplicationController
     @post_like.post = @post
     @post_like.user = current_user
     @post_like.save
-    redirect_to posts_path(@post)
+    redirect_to posts_path
   end
 
   def destroy
