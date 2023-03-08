@@ -1,4 +1,11 @@
-<p><%= post.content %></p>
-<% post.children.each do |post| %>
-  <p><%= post.first_name %></p>
-<% end %>
+<div class="post-content">
+  <p><%= post.content %></p>
+  <div class="container-avatar">
+    <% post.children.each do |child| %>
+      <div class="avatar-name">
+        <%= cl_image_tag child.photo.key, height: 60, width: 60, crop: :thumb, gravity: :face, class: "post-child-avatar"%>
+        <p class="child-name"><%= child.first_name %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

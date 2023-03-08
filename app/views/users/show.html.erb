@@ -1,25 +1,25 @@
-<div class="container">
-  <h2>PROFIL</h2>
-  <%= cl_image_tag @user.photo.key, height: 40, crop: :thumb, gravity: :face%>
-  <br>
-  <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
-  <br>
-  <p>You are logd in as a <%= @user.role %></p>
-  <br>
-  <% if @user.nanny?  %>
-    <% @filiations.each do |filiation| %>
-      <%= filiation.child.first_name %>
-      <%= simple_form_for(filiation) do |f| %>
-        <%= f.submit :accepted, as: :radio_buttons, collection: ['Accepted'] %>
-        <%= f.submit :declined, as: :radio_buttons, collection: ['Declined'] %>
-      <% end %>
-    <% end %>
-  <% end %>
-  <br>
-  <h4>Ma garderie</h4>
+<h2>PROFIL</h2>
+<%= cl_image_tag @user.photo.key, height: 40, crop: :thumb, gravity: :face%>
+<br>
+<h3><%= @user.first_name  %> <%= @user.last_name %></h3>
+<br>
+<p>You are loged in as a <%= @user.role %></p>
+<br>
+<% if current_user.pending_children.any? %>
+  <h4>En attente</h4>
+<% end %>
+<% if @user.nanny?  %>
   <% @filiations.each do |filiation| %>
     <%= filiation.child.first_name %>
-    <%= cl_image_tag filiation.child.photo.key, height: 40, crop: :thumb, gravity: :face%>
+    <%= simple_form_for(filiation) do |f| %>
+      <%= f.submit :accepted, as: :radio_buttons, collection: ['Accepted'] %>
+      <%= f.submit :declined, as: :radio_buttons, collection: ['Declined'] %>
+    <% end %>
   <% end %>
-</div>
-
+<% end %>
+<br>
+<h4>Ma garderie</h4>
+<% current_user.accepted_children.each do |child| %>
+  <%= child.first_name %>
+  <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+<% end %>
