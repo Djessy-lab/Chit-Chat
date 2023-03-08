@@ -1,0 +1,16 @@
+<div class="container-avatars-update-destroy">
+  <div class="container-avatar">
+    <% post.children.each do |child| %>
+      <div class="avatar-name">
+        <%= cl_image_tag child.photo.key, height: 60, width: 60, crop: :thumb, gravity: :face, class: "post-child-avatar"%>
+        <p class="child-name"><%= child.first_name %></p>
+      </div>
+    <% end %>
+  </div>
+  <!-- Update/destroy post -->
+  <div class="container-edit-delete">
+    <% if post.user == current_user %>
+      <%= render "posts/modal_update_destroy", post: post %>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <!-- Button -->
 <div class="icons-update-delete">
   <p class="card-icon" data-bs-toggle="modal" data-bs-target="#updatePost<%=post.id%>"><i class="fa-regular fa-pen-to-square"></i></p>
-  <p class="card-icon"><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, post_path(post), data: { turbo_method: :delete } %></p>
+  <p class="card-icon"><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, post_path(post), data: { turbo_method: :delete, turbo_confirm: "Etes vous sûr?" } %></p>
 </div>
 
 <!-- Modal -->

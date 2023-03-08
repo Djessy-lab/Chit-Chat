@@ -1,14 +1,16 @@
 <!-- Posts#Index -->
 <% @posts.each do |post| %>
   <div class="card-container">
+    <!-- avatar des enfant + update/destroy-->
+    <%= render "posts/avatar_update_destroy", post: post %>
     <!-- photos -->
     <%= render "posts/photos", post: post %>
-    <!-- content avec dedans render du update/destroy-->
-    <%= render "posts/content", post: post %>
-    <!-- new post_like & comments -->
-    <%= render "posts/add_like_comment", post: post, post_like: @post_like, comment: @comment %>
+    <!-- content -->
+    <p class="post-content"><%= post.content %></p>
     <!-- see post_like & comments -->
     <%= render "posts/see_like_comment", post: post, comment_like: @comment_like %>
+    <!-- new post_like & comments -->
+    <%= render "posts/add_like_comment", post: post, post_like: @post_like, comment: @comment %>
   </div>
 <% end %>
 

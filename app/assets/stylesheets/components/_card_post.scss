@@ -16,32 +16,28 @@ background-color: white;
 
 .post-content {
   margin: 8px 0;
+  line-height: normal;
+  font-weight: 500;
+}
 
-  .container-avatar {
-    display: flex;
+.container-avatar {
+  display: flex;
+
+  .avatar-name {
+    margin: 0 5px;
   }
 
-    .avatar-name {
-      margin: 0 5px;
-    }
+  .post-child-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 
-    .post-child-avatar {
-      margin-top: 8px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-
-    p {
-      line-height: normal;
-      font-weight: 500;
-      margin: 0;
-    }
-
-    .child-name {
-      font-size: $avatar-name-font-size;
-      text-align: center;
-    }
+  .child-name {
+    font-size: $avatar-name-font-size;
+    text-align: center;
+    margin: 0;
+  }
 }
 
 .card-icon {
@@ -63,6 +59,7 @@ background-color: white;
 
 .container-avatars-update-destroy {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
+  border-bottom: 1px solid $card-border-grey;
 }
