@@ -6,9 +6,11 @@
 <% if @user.nanny?  %>
 <p> super vous etes nanny </p>
 <% end %>
+<%= cl_image_tag current_user.photo.key, height: 40, crop: :thumb, gravity: :face %>
+
 
 
 <% @filiations.each do |filiation| %>
-  <%= filiation.child_id %>
+  <%= filiation.child.first_name %>
   <%= link_to "valider", filiation_path(filiation), data: {turbo_method: :patch} %>
 <% end %>
