@@ -13,9 +13,12 @@
 @import "pages/index";
 
 .main-container {
+  display: flex;
+  flex-direction: column;
   height: 844px;
   width: 390px;
   margin: 0 auto;
   border: 1px solid rgb(190, 189, 189);
   font-family: $base-font;
+  height: 100%;
 }
