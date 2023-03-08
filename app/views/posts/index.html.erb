@@ -3,10 +3,18 @@
   <div class="card-container">
     <!-- photos -->
     <% post.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag photo.key, height: 300, width: 350, crop: :fill %>
     <% end %>
     <!-- content -->
-    <p><%= post.content %></p>
+    <%= post.content %>
+    <% post.children.each do |post| %>
+      <%= post.first_name %>
+    <% end %>
+    <!-- Update/destroy post -->
+    <% if post.user == current_user %>
+        <%= render "posts/modal_update", post: post %>
+        <p><%= link_to "Supprimer ce post", post_path(post), data: { turbo_method: :delete } %></p>
+      <% end %>
     <!-- new post_like -->
     <div class="card-com-like">
       <% if PostLike.where(post: post, user: current_user).size == 0 %>
@@ -46,28 +54,6 @@
     </div>
   </div>
 <% end %>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn plus fs-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  +
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau post</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= render 'form' %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-primary">Ajouter</button>
-      </div>
-    </div>
-  </div>
-</div>
+<% if current_user.nanny?  %>
+  <%= render "posts/modal_create", post: @post %>
+<% end %>
