@@ -1,4 +1,7 @@
 .card-container {
+display: flex;
+flex-direction: column;
+flex: 1 0 auto;
 border: 1px solid $card-border-grey;
 margin: 10px 0;
 padding: 10px;
@@ -10,6 +13,7 @@ p {
 }
 
 }
+
 
 .card-com-like {
   display: flex;
@@ -28,4 +32,10 @@ p {
     font-size: $com-font-size;
   }
 
+}
+
+.card-image {
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 10px;
 }
