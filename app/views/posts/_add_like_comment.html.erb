@@ -1,0 +1,11 @@
+<div class="card-com-like">
+  <% if PostLike.where(post: post, user: current_user).size == 0 %>
+    <%= simple_form_for [post, post_like] do |f| %>
+      <i class="fa-solid fa-baby-carriage"></i>
+      <%= f.button :submit, "like" %>
+    <% end %>
+  <% else %>
+    <p><%= link_to "Unlike", post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete } %></p>
+  <% end %>
+  <%= render "comments/form", post: post, comment: comment %>
+</div>

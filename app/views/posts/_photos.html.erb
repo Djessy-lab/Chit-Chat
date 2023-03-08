@@ -1,0 +1,3 @@
+<% post.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill, class: "card-image" %>
+<% end %>
