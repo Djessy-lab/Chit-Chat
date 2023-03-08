@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :children, through: :filiations
   has_many :child_posts, through: :children
   has_many :my_posts, through: :child_posts, source: :post
-  has_many :posts
+  has_many :posts, dependent: :destroy
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :role, presence: true

@@ -1,8 +1,31 @@
 .card-container {
-border: 1px solid $grey;
-margin-top: 10px;
-padding: 5px;
+border: 1px solid $card-border-grey;
+margin: 10px 0;
+padding: 10px;
 border-radius: $border-radius;
 box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
+
+p {
+  font-size: $content-font-size;
+}
+
+}
+
+.card-com-like {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  font-size: $com-font-size;
+  color: $grey;
+  border-top: 1px solid $card-border-grey;
+  padding-top: 5px;
+
+  .btn {
+    color: $grey;
+  }
+
+  input {
+    font-size: $com-font-size;
+  }
 
 }

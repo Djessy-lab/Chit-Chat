@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def edit_filiation
     @filiations = current_user.filiations.where(progress: :pending)
+
   end
 
   # def filiations_params

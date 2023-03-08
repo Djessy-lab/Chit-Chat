@@ -6,9 +6,19 @@
 <% if @user.nanny?  %>
 <p> super vous etes nanny </p>
 <% end %>
+<%= cl_image_tag current_user.photo.key, height: 40, crop: :thumb, gravity: :face %>
+<br>
+
 
 
 <% @filiations.each do |filiation| %>
-  <%= filiation.child_id %>
-  <%= link_to "valider", filiation_path(filiation), data: {turbo_method: :patch} %>
+  <%# <%= link_to "valider", filiation_path(filiation), data: {turbo_method: :patch} %>
+<% end %>
+
+<% @filiations.each do |filiation| %>
+  <%= filiation.child.first_name %>
+  <%= simple_form_for(filiation) do |f| %>
+  <%= f.submit :accepted, as: :radio_buttons, collection: ['Accepted'] %>
+  <%= f.submit :declined, as: :radio_buttons, collection: ['Declined'] %>
+  <% end %>
 <% end %>
