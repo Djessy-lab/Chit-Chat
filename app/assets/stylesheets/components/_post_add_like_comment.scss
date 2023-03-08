@@ -1,12 +1,13 @@
 .card-com-like {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   height: 20px;
   font-size: $com-font-size;
   color: $grey;
   border-top: 1px solid $card-border-grey;
-  padding-top: 5px;
+  padding: 20px 0;
   margin-bottom: 5px;
 
   .unlike {
@@ -22,8 +23,4 @@
     align-items: center;
   }
 
-}
-
-.icon-green {
-  color: $button-green;
 }
