@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save
-      redirect_to posts_path(@post)
+      redirect_to posts_path
     else
       render "posts/index", status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to posts_path(@post)
+    redirect_to posts_path
   end
 
   private

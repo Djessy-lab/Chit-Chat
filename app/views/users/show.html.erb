@@ -7,6 +7,8 @@
 <p> super vous etes nanny </p>
 <% end %>
 
+
 <% @filiations.each do |filiation| %>
+  <%= filiation.child_id %>
   <%= link_to "valider", filiation_path(filiation), data: {turbo_method: :patch} %>
 <% end %>

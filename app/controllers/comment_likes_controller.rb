@@ -6,7 +6,7 @@ class CommentLikesController < ApplicationController
     @comment_like.comment = @comment
     @comment_like.user = current_user
     @comment_like.save
-    redirect_to posts_path(@post)
+    redirect_to posts_path
   end
 
   def destroy
