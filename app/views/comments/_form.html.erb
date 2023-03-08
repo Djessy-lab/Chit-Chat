@@ -1,4 +1,14 @@
-<%= simple_form_for [post, comment] do |f| %>
-  <%= f.input :content, label: "Commentaire" %>
-  <%= f.button :submit, "valider" %>
-<% end %>
+<div class="form-post">
+    <div class="form-post-header" id="headingOne">
+      <i class="fa-regular fa-comment"></i>
+      <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Commentaire
+      </button>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <%= simple_form_for [post, comment] do |f| %>
+        <%= f.input :content, label: "Commentaire" %>
+        <%= f.button :submit, "valider" %>
+      <% end %>
+    </div>
+  </div>
