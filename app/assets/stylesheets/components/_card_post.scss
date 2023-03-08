@@ -31,5 +31,33 @@ p {
   input {
     font-size: $com-font-size;
   }
+}
 
+.post-content {
+  margin: 8px 0;
+
+  .container-avatar {
+    display: flex;
+  }
+
+    .avatar-name {
+      margin-right: 5px;
+    }
+
+    .post-child-avatar {
+      margin-top: 8px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    p {
+      line-height: normal;
+      margin: 0;
+    }
+
+    .child-name {
+      font-size: $avatar-name-font-size;
+      text-align: center;
+    }
 }
