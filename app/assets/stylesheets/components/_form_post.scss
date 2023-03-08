@@ -1,10 +1,12 @@
 .btn {
   font-size: $com-font-size;
   padding: 0 0 0 2px;
+  color: $grey;
 }
 
 .form-post-header {
   display: flex;
   align-items: center;
   margin-left: 10px;
+  min-height: 10px;
 }

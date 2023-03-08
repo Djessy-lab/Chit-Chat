@@ -1,24 +1,26 @@
 <!-- likes -->
-<% if post.post_likes.size > 0 %>
-  <p><%= post.post_likes.size %> likes </p>
-<% end %>
-<!-- comments -->
-<% post.comments.each do |comment| %>
-  <%= comment.content %>
-  <!-- new comment_like -->
-  <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
-    <%= simple_form_for [comment, comment_like] do |f| %>
-      <%= f.button :submit, "like" %>
+<div>
+  <% if post.post_likes.size > 0 %>
+    <p><%= post.post_likes.size %> likes </p>
+  <% end %>
+  <!-- comments -->
+  <% post.comments.each do |comment| %>
+    <%= comment.content %>
+    <!-- new comment_like -->
+    <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
+      <%= simple_form_for [comment, comment_like] do |f| %>
+        <%= f.button :submit, "like" %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Unlike", comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete } %></p>
     <% end %>
-  <% else %>
-    <p><%= link_to "Unlike", comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete } %></p>
+    <!-- likes comments -->
+    <% if comment.comment_likes.size > 0 %>
+      <p><%= comment.comment_likes.size %> likes </p>
+    <% end %>
+    <!-- destroy comment -->
+    <% if comment.user == current_user %>
+      <p><%= link_to "Supprimer ce commentaire", comment_path(comment), data: { turbo_method: :delete } %></p>
+    <% end %>
   <% end %>
-  <!-- likes comments -->
-  <% if comment.comment_likes.size > 0 %>
-    <p><%= comment.comment_likes.size %> likes </p>
-  <% end %>
-  <!-- destroy comment -->
-  <% if comment.user == current_user %>
-    <p><%= link_to "Supprimer ce commentaire", comment_path(comment), data: { turbo_method: :delete } %></p>
-  <% end %>
-<% end %>
+</div>
