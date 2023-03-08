@@ -2,16 +2,16 @@
 display: flex;
 flex-direction: column;
 flex: 1 0 auto;
-border: 1px solid $card-border-grey;
+// border: 1px solid $card-border-grey;
 margin: 10px 0;
 padding: 10px;
 border-radius: $border-radius;
 box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
+background-color: white;
 
-p {
-  font-size: $content-font-size;
-}
-
+  p {
+    font-size: $content-font-size;
+  }
 }
 
 .post-content {
@@ -22,7 +22,7 @@ p {
   }
 
     .avatar-name {
-      margin-right: 5px;
+      margin: 0 5px;
     }
 
     .post-child-avatar {
@@ -34,6 +34,7 @@ p {
 
     p {
       line-height: normal;
+      font-weight: 500;
       margin: 0;
     }
 
@@ -41,4 +42,27 @@ p {
       font-size: $avatar-name-font-size;
       text-align: center;
     }
+}
+
+.card-icon {
+  i {
+    color : $grey;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 18px;
+
+    &:hover {
+      color : $button-green;
+    }
+  }
+}
+
+.icons-update-delete {
+  display: flex;
+}
+
+.container-avatars-update-destroy {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
