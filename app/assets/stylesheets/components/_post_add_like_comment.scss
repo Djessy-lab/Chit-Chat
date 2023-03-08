@@ -1,0 +1,29 @@
+.card-com-like {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 20px;
+  font-size: $com-font-size;
+  color: $grey;
+  border-top: 1px solid $card-border-grey;
+  padding-top: 5px;
+  margin-bottom: 5px;
+
+  .unlike {
+    font-size: $com-font-size;
+  }
+
+  input {
+    font-size: $com-font-size;
+  }
+
+  .card-unlike {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+.icon-green {
+  color: $button-green;
+}
