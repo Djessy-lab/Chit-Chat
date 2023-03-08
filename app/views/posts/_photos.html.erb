@@ -1,17 +1,19 @@
-<% if post.photos.size == 1 %>
-  <% post.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, crop: :fill, class: "card-image" %>
+<div class="container-photos">
+  <% if post.photos.size == 1 %>
+    <% post.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill, class: "card-image" %>
+    <% end %>
+  <% elsif post.photos.size.even? %>
+    <div class="card-even">
+      <% post.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, crop: :fill, class: "card-even-image" %>
+      <% end %>
+    </div>
+  <% elsif post.photos.size.odd? %>
+    <div class="card-odd">
+      <% post.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, crop: :fill, class: "card-odd-image" %>
+      <% end %>
+    </div>
   <% end %>
-<% elsif post.photos.size.even? %>
-  <div class="card-even">
-    <% post.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, crop: :fill, class: "card-even-image" %>
-    <% end %>
-  </div>
-<% elsif post.photos.size.odd? %>
-  <div class="card-odd">
-    <% post.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, crop: :fill, class: "card-odd-image" %>
-    <% end %>
-  </div>
-<% end %>
+</div>

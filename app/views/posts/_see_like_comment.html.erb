@@ -1,8 +1,17 @@
 <!-- likes -->
-<div>
-  <% if post.post_likes.size > 0 %>
-    <p><%= post.post_likes.size %> likes </p>
-  <% end %>
+<div class="container-see-likes-comments">
+  <div class="container-see-number-likes-comments">
+    <div class="see-likes-number">
+      <% if post.post_likes.size > 0 %>
+        <p><i class="fa-solid fa-heart icon-green"></i> <%= post.post_likes.size %></p>
+      <% end %>
+    </div>
+    <div class="see-comments-number">
+      <% if post.comments.size > 0 %>
+        <p><i class="fa-solid fa-comment icon-green"></i> <%= post.comments.size %></p>
+      <% end %>
+    </div>
+  </div>
   <!-- comments -->
   <% post.comments.each do |comment| %>
     <%= comment.content %>

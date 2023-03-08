@@ -1,0 +1,21 @@
+.container-see-number-likes-comments {
+  display: flex;
+
+  .see-likes-number {
+    color: $grey;
+    margin-right: 10px;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .see-comments-number {
+    color: $grey;
+    margin-right: 10px;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}

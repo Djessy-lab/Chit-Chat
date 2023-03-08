@@ -1,12 +1,12 @@
 <div class="card-com-like">
   <% if PostLike.where(post: post, user: current_user).size == 0 %>
     <%= simple_form_for [post, post_like] do |f| %>
-      <i class="fa-solid fa-baby-carriage"></i>
+      <i class="fa-regular fa-heart"></i>
       <%= f.button :submit, "like" %>
     <% end %>
   <% else %>
     <div class="card-unlike">
-      <%= link_to '<i class="fa-solid fa-baby-carriage icon-green"></i> Unlike'.html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
+      <%= link_to '<i class="fa-solid fa-heart icon-green"></i> Unlike'.html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
     </div>
   <% end %>
   <%= render "comments/form", post: post, comment: comment %>
