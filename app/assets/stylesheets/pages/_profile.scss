@@ -1,5 +1,70 @@
 .avatar {
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
+}
+
+.avatar-profile {
+  border-radius: 50%;
+}
+
+.center-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-garderie {
+  border-radius: $border-radius;
+  height: 150px;
+  width: 335px;
+  text-align: center;
+  padding: 20px;
+  line-height: 36px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px 0 #aedac5;
+}
+
+
+.card-attente {
+  border-radius: $border-radius;
+  height: 150px;
+  width: 335px;
+  text-align: center;
+  padding: 20px;
+  line-height: 36px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px 0 #aedac5;
+  overflow: scroll;
+}
+
+.card-bio {
+  border-radius: $border-radius;
+  height: 150px;
+  width: 335px;
+  text-align: center;
+  padding: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px 0 #aedac5;
+  overflow: scroll;
+}
+
+
+.button-green {
+  background-color: #aedac5;
+  border-radius: $border-radius;
+  border: none;
+  padding: 5px;
+  margin: 0 8px;
+}
+
+.cards-avatars {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.name-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
