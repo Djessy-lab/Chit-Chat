@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :children, only: %i[create destroy], shallow: true do
     resources :filiations, only: %i[create update]
   end
-  resources :users, only: %i[show]
+  resources :users, only: %i[show update]
 end

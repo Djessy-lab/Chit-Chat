@@ -5,6 +5,7 @@ class ChildrenController < ApplicationController
     @child = Child.new(child_params)
     @child.save
     create_filiations
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -15,10 +16,11 @@ class ChildrenController < ApplicationController
   private
 
   def create_filiations
-    @filiation = Filiation.new(filiations_params)
+    @filiation = Filiation.new()
     @filiation.child = @child
-    @user = User.find(params[:user_id])
-    @filiation.user = @user
+    # @user = User.find(params[:user_id])
+    @filiation.user = current_user
+    @filiation.progress = :accepted
     @filiation.save
   end
 
@@ -27,6 +29,10 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:first_name, :last_name, :birthdate, :avatar)
+    params.require(:child).permit(:first_name, :last_name, :birthdate, :photo, filiations_attributes: [:user_id])
   end
+
+  # def filiations_params
+  #   params.require(:filiation).permit(:progress, :child_id, :user_id)
+  # end
 end

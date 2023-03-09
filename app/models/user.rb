@@ -23,4 +23,8 @@ class User < ApplicationRecord
   enum role: { nanny: 0, family: 1 }
 
   has_one_attached :photo
+
+  def name
+    "#{first_name} - #{last_name}"
+  end
 end
