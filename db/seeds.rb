@@ -27,12 +27,12 @@ maman.photo.attach(io: maman_photo, filename: "maman.png", content_type: "image/
 maman.save
 puts "maman created"
 
-# puts "Creating enfant..."
-# enfant_photo = URI.open("https://www.bfly.ca/wp-content/uploads/2018/01/valoriser-l%E2%80%99enfant.jpg")
-# enfant = Child.new(first_name: "Alix", last_name: "Tms", birthdate: Date.new(2021,02,12))
-# enfant.photo.attach(io: enfant_photo, filename: "enfant.png", content_type: "image/png")
-# enfant.save
-# puts "enfant created"
+puts "Creating enfant..."
+enfant_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678284963/development/qchho9oil4zhbxh15t2smwv1v8qf.jpg")
+enfant = Child.new(first_name: "Alix", last_name: "Tms", birthdate: Date.new(2021,02,12))
+enfant.photo.attach(io: enfant_photo, filename: "enfant.png", content_type: "image/png")
+enfant.save
+puts "enfant created"
 
 puts "Creating famille..."
 famille = Filiation.create(child_id: enfant.id , user_id: papa.id)
