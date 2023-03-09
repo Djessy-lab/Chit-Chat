@@ -10,13 +10,16 @@ class Child < ApplicationRecord
 
   has_one_attached :photo
 
+
+  has_many :family_filiations, -> { family }, class_name: "Filiation", inverse_of: 'child', dependent: :destroy
+  has_many :families, through: :family_filiations, source: :user
+
+  has_one :nanny_filiation, -> { nanny }, class_name: "Filiation", inverse_of: 'child', dependent: :destroy
+  has_one :nanny, through: :nanny_filiation, source: :user
+
   accepts_nested_attributes_for :filiations, reject_if: :all_blank
-
-  has_many :family_filiations, -> { family }, class_name: "User"
-  has_many :family_children, through: :family_filiations, source: :user
-
-  has_many :nanny_filiations, -> { nanny }, class_name: "User"
-  has_many :nanny_children, through: :nanny_filiations, source: :user
+  accepts_nested_attributes_for :family_filiations, reject_if: :all_blank
+  accepts_nested_attributes_for :nanny_filiation, reject_if: :all_blank
 
   def name
     "#{first_name} - #{last_name}"
