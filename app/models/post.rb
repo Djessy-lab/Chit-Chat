@@ -9,4 +9,11 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   has_many_attached :photos
+
+  def likers_names
+    array = self.post_likes.map do |like|
+      "#{like.user.first_name.capitalize} #{like.user.last_name.capitalize}"
+    end
+    array.join(", ")
+  end
 end
