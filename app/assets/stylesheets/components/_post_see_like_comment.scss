@@ -67,3 +67,13 @@
     font-size: 14px;
   }
 }
+
+.who-likes {
+  display: flex;
+  color: $grey;
+  font-size: 12px;
+
+  p {
+    margin-bottom: 4px;
+  }
+}
