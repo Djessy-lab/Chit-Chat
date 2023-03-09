@@ -1,8 +1,9 @@
 <div class= "center-div">
-  <h2>PROFIL</h2>
+<div class="fond">
+</div>
   <%= cl_image_tag @user.photo.key, height: 90, width: 90, crop: :thumb, gravity: :face, class: "avatar-profile"%>
   <br>
-  <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
+  <h3 class="profile-name"><%= @user.first_name  %> <%= @user.last_name %></h3>
   <br>
   <div class="card-bio">
     <h3>Ma Bio</h3>

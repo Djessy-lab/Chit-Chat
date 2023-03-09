@@ -4,6 +4,12 @@
 
 .avatar-profile {
   border-radius: 50%;
+  position: absolute;
+  top: 106px;
+}
+
+.profile-name {
+  margin-top: 16px;
 }
 
 .center-div {
@@ -15,37 +21,40 @@
 
 .card-garderie {
   border-radius: $border-radius;
+  background-color: white;
   height: 150px;
   width: 335px;
   text-align: center;
   padding: 20px;
   line-height: 36px;
   margin: 0 auto;
-  box-shadow: 0 0 10px 0 #aedac5;
+  box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
 }
 
 
 .card-attente {
   border-radius: $border-radius;
+  background-color: white;
   height: 150px;
   width: 335px;
   text-align: center;
   padding: 20px;
   line-height: 36px;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px 0 #aedac5;
+  box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
   overflow: scroll;
 }
 
 .card-bio {
   border-radius: $border-radius;
+  background-color: white;
   height: 150px;
   width: 335px;
   text-align: center;
   padding: 20px;
   line-height: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px 0 #aedac5;
+  box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
   overflow: scroll;
 }
 
@@ -90,4 +99,11 @@
   border: 1px solid;
   color: $button-green;
   transition: all .3s;
+}
+
+.fond {
+  background-color: $main-green;
+  width: 107%;
+  height: 100px;
+  position: relative;
 }
