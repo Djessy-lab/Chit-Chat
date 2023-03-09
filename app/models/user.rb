@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many :pending_filiations, -> { pending }, class_name: "Filiation"
   has_many :pending_children, through: :pending_filiations, source: :child
 
-
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :role, presence: true

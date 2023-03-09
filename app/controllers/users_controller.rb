@@ -4,9 +4,11 @@ class UsersController < ApplicationController
     if @user.family?
       # action children#new
       @child = Child.new
-      @child.filiations.build
+      # @child.family_filiations.build([{},{}])
+      @child.family_filiations.build
+      @child.build_nanny_filiation
       # action filitations#new
-      @filiation = Filiation.new
+      # @filiation = Filiation.new
       # action filiations#edit
     end
     edit_filiation
