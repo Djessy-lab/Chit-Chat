@@ -10,7 +10,7 @@
     <%= render "posts/photos", post: post %>
     <!-- content -->
     <p class="post-content"><%= post.content %></p>
-    <p class="post-date"><%= post.created_at.strftime("posté le %d/%m/%y à %H:%S") %></p>
+    <p class="post-date"><%= post.created_at.in_time_zone("Europe/Paris").strftime("posté le %d/%m/%y à %H:%M") %></p>
     <!-- see post_like & comments -->
     <%= render "posts/see_like_comment", post: post, comment_like: @comment_like %>
     <!-- new post_like & comments -->

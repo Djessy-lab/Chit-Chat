@@ -1,63 +1,65 @@
-<!-- number of likes & comments -->
-<div class="container-see-likes-comments">
-  <div class="container-see-number-likes-comments">
-    <% if post.post_likes.size > 0 %>
-      <div class="see-likes-number">
-        <p data-bs-toggle="collapse" data-bs-target="#collapselikes<%=post.id%>" aria-expanded="false" aria-controls="collapsecomment<%=post.id%>"><i class="fa-solid fa-heart icon-green"></i> <%= post.post_likes.size %></p>
-      </div>
-    <% end %>
-    <% if post.comments.size > 0 %>
-      <div class="see-comments-number">
-        <p data-bs-toggle="collapse" data-bs-target="#collapsecomment<%=post.id%>" aria-expanded="false" aria-controls="collapsecomment<%=post.id%>"><i class="fa-solid fa-comment icon-green"></i> <%= post.comments.size %></p>
-      </div>
-    <% end %>
-  </div>
-  <!-- who likes -->
-  <div id="collapselikes<%=post.id%>" class="collapse who-likes" aria-labelledby="headingOne">
-    <p>aimé par&nbsp</p>
-    <%= post.likers_names %>
-  </div>
-  <!-- comments -->
-  <div id="collapsecomment<%=post.id%>" class="collapse" aria-labelledby="headingOne">
-    <% post.comments.each do |comment| %>
-      <div class="card-see-comments">
-        <div class="avatar-destroy">
-          <!-- avatar et nom -->
-          <div class="comment-avatar-name">
-            <%= cl_image_tag comment.user.photo.key, height: 60, width: 60, crop: :thumb, gravity: :face, class: "comment-avatar"%>
-            <%= comment.user.first_name.capitalize %>
-            <%= comment.user.last_name.capitalize %>
+<%= turbo_frame_tag "see_like_comments_#{post.id}" do %>
+  <!-- number of likes & comments -->
+  <div class="container-see-likes-comments">
+    <div class="container-see-number-likes-comments">
+        <% if post.post_likes.size > 0 %>
+          <div class="see-likes-number">
+            <p data-bs-toggle="collapse" data-bs-target="#collapselikes<%=post.id%>" aria-expanded="false" aria-controls="collapsecomment<%=post.id%>"><i class="fa-solid fa-heart icon-green"></i> <%= post.post_likes.size %></p>
           </div>
-          <!-- destroy comment -->
-          <% if comment.user == current_user %>
-            <p><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "Etes vous sûr?" } %></p>
-          <% end %>
+      <% end %>
+      <% if post.comments.size > 0 %>
+        <div class="see-comments-number">
+          <p data-bs-toggle="collapse" data-bs-target="#collapsecomment<%=post.id%>" aria-expanded="false" aria-controls="collapsecomment<%=post.id%>"><i class="fa-solid fa-comment icon-green"></i> <%= post.comments.size %></p>
         </div>
-        <!-- content -->
-        <p class="comment-content"><%= comment.content %></p>
-        <p class="post-date"><%= comment.created_at.strftime("le %d/%m/%y à %H:%S") %></p>
-        <!-- likes comments -->
-        <% if comment.comment_likes.size > 0 %>
-          <p data-bs-toggle="collapse" data-bs-target="#collapselikes<%=comment.id%>" aria-expanded="false" aria-controls="collapselikes<%=comment.id%>" class="comment-like-number"><i class="fa-solid fa-heart icon-green"></i> <%= comment.comment_likes.size %></p>
-        <% end %>
-        <div id="collapselikes<%=comment.id%>" class="collapse who-likes" aria-labelledby="headingOne">
-          <p>aimé par&nbsp</p>
-          <%= post.likers_names %>
-        </div>
-        <!-- new comment_like -->
-        <div class="new-comment-like">
-          <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
-            <%= simple_form_for [comment, comment_like] do |f| %>
-              <i class="fa-regular fa-heart icon-grey"></i>
-              <%= f.button :submit, "J'aime" %>
-            <% end %>
-          <% else %>
-            <div class="card-unlike">
-              <%= link_to "<i class='fa-solid fa-heart icon-green'></i> Je n'aime plus".html_safe , comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
+      <% end %>
+    </div>
+    <!-- who likes -->
+    <div id="collapselikes<%=post.id%>" class="collapse who-likes" aria-labelledby="headingOne">
+      <p>aimé par&nbsp</p>
+      <%= post.likers_names %>
+    </div>
+    <!-- comments -->
+    <div id="collapsecomment<%=post.id%>" class="collapse" aria-labelledby="headingOne">
+      <% post.comments.each do |comment| %>
+        <div class="card-see-comments">
+          <div class="avatar-destroy">
+            <!-- avatar et nom -->
+            <div class="comment-avatar-name">
+              <%= cl_image_tag comment.user.photo.key, height: 60, width: 60, crop: :thumb, gravity: :face, class: "comment-avatar"%>
+              <%= comment.user.first_name.capitalize %>
+              <%= comment.user.last_name.capitalize %>
             </div>
+            <!-- destroy comment -->
+            <% if comment.user == current_user %>
+              <p><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "Etes vous sûr?" } %></p>
+            <% end %>
+          </div>
+          <!-- content -->
+          <p class="comment-content"><%= comment.content %></p>
+          <p class="post-date"><%= comment.created_at.in_time_zone("Europe/Paris").strftime("le %d/%m/%y à %H:%M") %></p>
+          <!-- likes comments -->
+          <% if comment.comment_likes.size > 0 %>
+            <p data-bs-toggle="collapse" data-bs-target="#collapselikes<%=comment.id%>" aria-expanded="false" aria-controls="collapselikes<%=comment.id%>" class="comment-like-number"><i class="fa-solid fa-heart icon-green"></i> <%= comment.comment_likes.size %></p>
           <% end %>
+          <div id="collapselikes<%=comment.id%>" class="collapse who-likes" aria-labelledby="headingOne">
+            <p>aimé par&nbsp</p>
+            <%= comment.likers_names %>
+          </div>
+          <!-- new comment_like -->
+          <div class="new-comment-like">
+            <% if CommentLike.where(comment: comment, user: current_user).size == 0 %>
+              <%= simple_form_for [comment, comment_like] do |f| %>
+                <i class="fa-regular fa-heart icon-grey"></i>
+                <%= f.button :submit, "J'aime" %>
+              <% end %>
+            <% else %>
+              <div class="card-unlike">
+                <%= link_to "<i class='fa-solid fa-heart icon-green'></i> Je n'aime plus".html_safe , comment_like_path(CommentLike.where(comment: comment, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
