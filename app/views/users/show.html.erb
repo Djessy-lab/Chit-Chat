@@ -1,6 +1,5 @@
 <div class= "center-div">
   <h2>PROFIL</h2>
-   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
   <%= cl_image_tag @user.photo.key, height: 90, width: 90, crop: :thumb, gravity: :face, class: "avatar-profile"%>
   <br>
   <h3><%= @user.first_name  %> <%= @user.last_name %></h3>

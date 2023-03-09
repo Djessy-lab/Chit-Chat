@@ -12,6 +12,12 @@ class Child < ApplicationRecord
 
   accepts_nested_attributes_for :filiations, reject_if: :all_blank
 
+  has_many :family_filiations, -> { family }, class_name: "User"
+  has_many :family_children, through: :family_filiations, source: :user
+
+  has_many :nanny_filiations, -> { nanny }, class_name: "User"
+  has_many :nanny_children, through: :nanny_filiations, source: :user
+
   def name
     "#{first_name} - #{last_name}"
   end
