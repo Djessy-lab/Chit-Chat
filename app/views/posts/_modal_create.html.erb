@@ -3,22 +3,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau post</h1>
+        <h1 class="modal-title" id="exampleModalLabel">Nouveau post</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <% if current_user.nanny? %>
           <%= simple_form_for post do |f| %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.input :content %>
-            <%= f.association :children, as: :check_boxes, collection: current_user.children %>
-            <%= f.button :submit %>
-          <% end %>
-        <% end %>
+            <%= f.input :content, label: "Contenu" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
+            <%= f.association :children, as: :check_boxes, collection: current_user.children, label: "Enfants" %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-primary">Ajouter</button>
+          <%= f.button :submit, "Valider" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
