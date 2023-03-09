@@ -1,0 +1,34 @@
+<!-- Button trigger modal -->
+<button type="button" class="button-plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% if current_user.family? %>
+          <%= simple_form_for [@child] do |f| %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :birthdate, html5: true %>
+            <%= f.fields_for :filiations do |filiation_f| %>
+              <%= filiation_f.association :user, as: :select, collection: User.nanny %>
+            <% end %>
+            <%= f.button :submit %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

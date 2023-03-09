@@ -10,6 +10,8 @@ class Child < ApplicationRecord
 
   has_one_attached :photo
 
+  accepts_nested_attributes_for :filiations, reject_if: :all_blank
+
   def name
     "#{first_name} - #{last_name}"
   end

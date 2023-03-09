@@ -6,11 +6,16 @@
   <h3><%= @user.first_name  %> <%= @user.last_name %></h3>
   <br>
   <div class="card-bio">
-    <small>Après un baccalauréat litérairee j'ai décidé de me tourner vers la petite enfance et ai donc passé mon CAP afin de vivre de ma passion.</small>
+    <h3>Ma Bio</h3>
+      <%= @user.bio %>
+      <% if current_user == @user %>
+        <%= render 'modal_bio' %>
+      <% end %>
   </div>
   <% if current_user == @user && current_user.nanny? %>
     <%= render 'show_nanny' %>
   <% elsif current_user == @user && current_user.family? %>
+    <%= render 'modal_add_child' %>
     <%= render 'show_family' %>
   <% end %>
 </div>

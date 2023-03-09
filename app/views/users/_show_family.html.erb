@@ -13,11 +13,13 @@
     <% end %>
   </div>
   <div class="card-garderie">
-    <h4>Ma famille</h4>
+    <h4>Ma Famille</h4>
     <div class="cards-avatars">
       <% current_user.accepted_children.each do |child| %>
       <div class="name-avatar">
+      <% if child.photo.attached? %>
         <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+        <% end %>
         <%= child.first_name %>
       </div>
       <% end %>
