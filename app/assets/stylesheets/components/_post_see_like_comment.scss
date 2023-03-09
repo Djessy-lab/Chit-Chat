@@ -3,7 +3,7 @@
 
   .see-likes-number {
     color: $grey;
-    margin-right: 10px;
+    margin-right: 20px;
 
     p {
       margin-bottom: 5px;
@@ -12,10 +12,58 @@
 
   .see-comments-number {
     color: $grey;
-    margin-right: 10px;
+    margin-right: 20px;
 
     p {
       margin-bottom: 5px;
     }
+  }
+}
+
+.card-see-comments {
+  border: 1px solid $card-border-grey;
+  border-radius: $border-radius;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: $com-font-size;
+
+  .comment-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+
+  .comment-avatar-name {
+    color: $grey;
+  }
+
+  .comment-content {
+    line-height: normal;
+    font-weight: 500;
+    margin: 5px 0;
+  }
+
+  .new-comment-like {
+    border-top: 1px solid $card-border-grey;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-top: 4px;
+
+      &:hover {
+        color: $button-green;
+      }
+  }
+
+  .avatar-destroy {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 26px;
+  }
+
+  .comment-like-number {
+    margin-bottom: 6px;
+    color: $grey;
+    font-size: 14px;
   }
 }
