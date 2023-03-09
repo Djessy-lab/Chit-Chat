@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :comments, only: %i[update destroy], shallow: true do
     resources :comment_likes, only: %i[create destroy]
   end
-  resources :children, only: %i[create destroy], shallow: true do
+  resources :children, only: %i[create destroy update], shallow: true do
     resources :filiations, only: %i[create update]
   end
   resources :users, only: %i[show update]

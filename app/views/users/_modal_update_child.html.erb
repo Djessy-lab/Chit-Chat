@@ -1,10 +1,5 @@
-<!-- Button trigger modal -->
-<button type="button" class="button-plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  +
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateChild<%= child.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,8 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <% if current_user.family? %>
-          <%= simple_form_for [@child] do |f| %>
+        <%= simple_form_for [child] do |f| %>
             <%= f.input :photo, as: :file %>
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom" %>
@@ -26,7 +20,6 @@
             <% end %>
             <%= f.button :submit %>
           <% end %>
-        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
