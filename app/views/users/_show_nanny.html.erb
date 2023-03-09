@@ -1,0 +1,25 @@
+<% if current_user.pending_children.any? %>
+  <div class="card-attente">
+    <h4>En attente</h4>
+    <% end %>
+    <% if @user.nanny? %>
+      <% @filiations.each do |filiation| %>
+        <%= filiation.child.first_name %>
+        <%= simple_form_for(filiation) do |f| %>
+          <%= f.submit "Accepter", class: "button-green" %>
+          <%= f.submit "Décliner", class: "button-green" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="card-garderie">
+    <h4>Ma garderie</h4>
+    <div class="cards-avatars">
+      <% current_user.accepted_children.each do |child| %>
+      <div class="name-avatar">
+        <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+        <%= child.first_name %>
+      </div>
+      <% end %>
+    </div>
+  </div>
