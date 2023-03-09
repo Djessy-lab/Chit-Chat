@@ -1,3 +1,6 @@
+    <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      +
+    </button>
 <!-- Posts#Index -->
 <% @posts.each do |post| %>
   <div class="card-container">
@@ -14,6 +17,7 @@
     <%= render "posts/add_like_comment", post: post, post_like: @post_like, comment: @comment %>
   </div>
 <% end %>
+<!-- Button trigger modal -->
 
 <% if current_user.nanny?  %>
   <%= render "posts/modal_create", post: @post %>
