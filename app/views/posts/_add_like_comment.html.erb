@@ -1,19 +1,21 @@
-<div class="card-com-like">
-  <% if PostLike.where(post: post, user: current_user).size == 0 %>
-    <%= simple_form_for [post, post_like] do |f| %>
-      <i class="fa-regular fa-heart"></i>
-      <%= f.button :submit, "J'aime", class: "hover-green" %>
+<%= turbo_frame_tag "add_like_comments_#{post.id}" do %>
+  <div class="card-com-like">
+    <% if PostLike.where(post: post, user: current_user).size == 0 %>
+      <%= simple_form_for [post, post_like] do |f| %>
+        <i class="fa-regular fa-heart"></i>
+        <%= f.button :submit, "J'aime", class: "hover-green" %>
+      <% end %>
+    <% else %>
+      <div class="card-unlike">
+        <%= link_to "<i class='fa-solid fa-heart icon-green'></i> Je n'aime plus".html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
+      </div>
     <% end %>
-  <% else %>
-    <div class="card-unlike">
-      <%= link_to "<i class='fa-solid fa-heart icon-green'></i> Je n'aime plus".html_safe , post_like_path(PostLike.where(post: post, user: current_user).first), data: { turbo_method: :delete }, class: "unlike" %>
-    </div>
-  <% end %>
-  <%= render "comments/form", post: post, comment: comment %>
-</div>
-<div id="collapse<%=post.id%>" class="collapse" aria-labelledby="headingOne">
-  <%= simple_form_for [post, comment] do |f| %>
-    <%= f.input :content, label: false %>
-    <%= f.button :submit, "Valider", class: "valider" %>
-  <% end %>
-</div>
+    <%= render "comments/form", post: post, comment: comment %>
+  </div>
+  <div id="collapse<%=post.id%>" class="collapse" aria-labelledby="headingOne">
+    <%= simple_form_for [post, comment] do |f| %>
+      <%= f.input :content, label: false %>
+      <%= f.button :submit, "Valider", class: "valider" %>
+    <% end %>
+  </div>
+<% end %>
