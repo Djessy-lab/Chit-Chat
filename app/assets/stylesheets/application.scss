@@ -11,6 +11,11 @@
 // Your CSS partials
 @import "pages/index";
 
+body{
+    height: 100%;
+    margin: 0; /* pas de marge */
+    padding: 0; /*ni de padding */
+}
 
 .main-container {
   display: flex;
