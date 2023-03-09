@@ -8,7 +8,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title" id="exampleModalLabel">Mon enfant</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -24,13 +24,11 @@
             <%= f.fields_for :family_filiations do |filiation_f| %>
               <%= filiation_f.input :user_id, as: :select, collection: User.family, label: "Ma famille" %>
             <% end %>
-            <%= f.button :submit %>
-          <% end %>
-        <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <%= f.button :submit, "Valider" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

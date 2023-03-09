@@ -1,0 +1,27 @@
+.modal-header {
+  background-color: #aedac5;
+  color: gray;
+  display: flex;
+  flex-direction: column-reverse;
+
+  h1 {
+    font-size: 32px;
+  }
+}
+
+
+.modal-footer {
+  background-color: #aedac5;
+  display: flex;
+  justify-content: space-around;
+
+  input {
+    font-size: 24px;
+  }
+}
+
+.modal-body {
+  background-color: $light-gray;
+  text-align: center;
+  color: gray;
+}
