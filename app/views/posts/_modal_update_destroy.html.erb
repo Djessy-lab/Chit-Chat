@@ -12,16 +12,17 @@
         <h1 class="modal-title" id="exampleModalLabel">Modifier ce post</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
         <%= simple_form_for post do |f| %>
-          <%= f.input :content, label: "Contenu" %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
-          <%= f.association :children, as: :check_boxes, collection: current_user.children, label: "Enfants" %>
-      </div>
-      <div class="modal-footer">
-        <%= f.button :submit, "Valider" %>
+          <div class="modal-body">
+            <%= f.input :content, label: "Contenu" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
+            <%= f.association :children, as: :check_boxes, collection: current_user.children, label: "Enfants" %>
+          </div>
+          <div class="modal-footer">
+            <%= f.button :submit, "Valider" %>
+          </div>
         <% end %>
+
       </div>
-    </div>
   </div>
 </div>

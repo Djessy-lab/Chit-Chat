@@ -11,9 +11,9 @@
         <h1 class="modal-title" id="exampleModalLabel">Mon enfant</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <% if current_user.family? %>
+      <% if current_user.family? %>
           <%= simple_form_for [@child] do |f| %>
+        <div class="modal-body">
             <%= f.input :photo, as: :file %>
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom" %>
@@ -28,8 +28,8 @@
       <div class="modal-footer">
       <%= f.button :submit, "Valider" %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

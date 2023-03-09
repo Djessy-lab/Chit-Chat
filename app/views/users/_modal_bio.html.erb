@@ -10,14 +10,14 @@
         <h1 class="modal-title" id="exampleModalLabel">Ma Bio</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <%= simple_form_for current_user do |f| %>
         <div class="modal-body">
-          <%= simple_form_for current_user do |f| %>
               <%= f.input :bio, label: false %>
         </div>
-      <div class="modal-footer">
+        <div class="modal-footer">
           <%= f.button :submit, "Valider" %>
-          <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
