@@ -8,16 +8,20 @@ padding: 10px;
 border-radius: $border-radius;
 box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
 background-color: white;
-
-  p {
-    font-size: $content-font-size;
-  }
 }
 
 .post-content {
-  margin: 8px 0;
   line-height: normal;
   font-weight: 500;
+  font-size: $content-font-size;
+  margin: 8px 0 2px 0;
+}
+
+.post-date {
+  color: $grey;
+  margin: 0;
+  font-size: $date-font-size;
+  margin-bottom: 8px;
 }
 
 .container-avatar {
@@ -55,6 +59,10 @@ background-color: white;
 
 .icon-green {
   color: $button-green;
+}
+
+.icon-grey {
+  color : $grey;
 }
 
 .icons-update-delete {
