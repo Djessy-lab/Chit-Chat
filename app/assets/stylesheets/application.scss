@@ -21,12 +21,18 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 844px;
-  height: 844px;
   width: 390px;
   margin: 0 auto;
   border: 1px solid rgb(190, 189, 189);
   font-family: $base-font;
+}
+
+.contenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
+  margin-bottom: 80px;
 }
 
 .container-backgound {
