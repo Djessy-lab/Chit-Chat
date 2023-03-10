@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "see_comments_#{post.id}" do %>
+  <% if post.comments.size > 0 %>
+    <div class="see-comments-number">
+      <p data-bs-toggle="collapse" data-bs-target="#collapsecomment<%=post.id%>" aria-expanded="false" aria-controls="collapsecomment<%=post.id%>"><i class="fa-solid fa-comment icon-green"></i> <%= post.comments.size %></p>
+    </div>
+  <% end %>
+<% end %>
