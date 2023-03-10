@@ -1,37 +1,39 @@
-<h2 class="signup-title">Créer un profil</h2>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+<div class="container-fluid">
+  <h2 class="signup-title">Créer un profil</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :photo, as: :file %>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true, label: "Prénom" %>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true, label: "Nom" %>
-    <%#= f.input :role, as: :radio_buttons, collection: User.roles.keys, label: "Vous êtes une :" %>
-      <%= f.label "Vous êtes " %>
-    <div class="choice">
-      <%= f.collection_radio_buttons :role, [["nanny", 'Nounou'], ["family", 'Famille']], :first, :last, class: "choice" %>
+    <div class="form-inputs form-login">
+      <%= f.input :photo, as: :file %>
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true, label: "Prénom" %>
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true, label: "Nom" %>
+      <%#= f.input :role, as: :radio_buttons, collection: User.roles.keys, label: "Vous êtes une :" %>
+        <%= f.label "Vous êtes " %>
+      <div class="choice">
+        <%= f.collection_radio_buttons :role, [["nanny", 'Nounou'], ["family", 'Famille']], :first, :last, class: "choice" %>
+      </div>
+      <hr>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }, label: "E-mail" %>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" }, label: "Mot de passe" %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" }, label: "Confirmer le mot de passe" %>
     </div>
-    <hr>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }, label: "E-mail" %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" }, label: "Mot de passe" %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" }, label: "Confirmer le mot de passe" %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Créer un profil" %>
-  </div>
-<% end %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Créer un profil" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
