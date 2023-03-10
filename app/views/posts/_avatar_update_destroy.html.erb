@@ -10,7 +10,34 @@
   <!-- Update/destroy post -->
   <div class="container-edit-delete">
     <% if post.user == current_user %>
-      <%= render "posts/modal_update_destroy", post: post %>
+      <!-- Button -->
+      <div class="icons-update-delete">
+        <p class="card-icon" data-bs-toggle="modal" data-bs-target="#updatePost<%=post.id%>"><i class="fa-regular fa-pen-to-square"></i></p>
+        <p class="card-icon"><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, post_path(post), data: { turbo_method: :delete, turbo_confirm: "Etes vous sûr?" } %></p>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="updatePost<%=post.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalLabel">Modifier ce post</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <%= simple_form_for post do |f| %>
+                <div class="modal-body">
+                  <%= f.input :content, label: "Contenu" %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
+                  <%= f.association :children, as: :check_boxes, collection: current_user.children, label: "Enfants" %>
+                </div>
+                <div class="modal-footer">
+                  <%= f.button :submit, "Valider" %>
+                </div>
+              <% end %>
+
+            </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
