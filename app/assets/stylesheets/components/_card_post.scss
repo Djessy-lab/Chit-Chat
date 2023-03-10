@@ -1,7 +1,7 @@
 .card-container {
 display: flex;
 flex-direction: column;
-flex: 1 0 auto;
+
 // border: 1px solid $card-border-grey;
 margin: 5px 0;
 padding: 10px;
@@ -45,6 +45,7 @@ background-color: white;
 }
 
 .card-icon {
+
   i {
     color : $grey;
     cursor: pointer;
