@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   def index
     # action posts#index
     if current_user.nanny?
-      @posts = current_user.posts
+      @posts = current_user.posts.reverse_order
     else
-      @posts = current_user.my_posts
+      @posts = current_user.my_posts.reverse_order
     end
     # action posts#new
     @post = Post.new
