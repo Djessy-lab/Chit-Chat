@@ -5,10 +5,16 @@ class CommentsController < ApplicationController
     posts_index
     @comment = Comment.new(comments_params)
     @post = Post.find(params[:post_id])
+    @post_like = PostLike.new
+    @new_comment = Comment.new
     @comment.post = @post
     @comment.user = current_user
+    @comment_like = CommentLike.new
     if @comment.save
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.turbo_stream
+      end
     else
       render "posts/index", status: :unprocessable_entity
     end
