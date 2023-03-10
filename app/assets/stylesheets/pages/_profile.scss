@@ -10,7 +10,8 @@
 }
 
 .profile-name {
-  margin-top: 24px;
+  margin-top: 54px;
+  margin-bottom: 30px;
 }
 
 .center-div {
@@ -106,12 +107,23 @@
 .fond {
   background-color: $main-green;
   width: 107%;
-  height: 73px;
+  height: 113px;
   position: relative;
 }
 
-.card-icon {
+.card-icon-profile {
   position: absolute;
   top: 20px;
   right: 10px;
+
+  i {
+    color : $grey;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 18px;
+
+    &:hover {
+      color : $button-green;
+    }
+  }
 }
