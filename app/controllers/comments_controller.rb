@@ -26,8 +26,13 @@ class CommentsController < ApplicationController
   # end
 
   def destroy
+    @post = @comment.post
     @comment.destroy
-    redirect_to posts_path
+    @comment_like = CommentLike.new
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.turbo_stream
+    end
   end
 
   private

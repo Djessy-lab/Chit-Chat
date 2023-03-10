@@ -16,11 +16,7 @@
     </div>
     <!-- comments -->
     <div id="collapsecomment<%=post.id%>" class="collapse" aria-labelledby="headingOne">
-      <%= turbo_frame_tag "comments_#{post.id}" do %>
-        <% post.comments.each do |comment| %>
-          <%= render "comments/see_comments", comment: comment, comment_like: @comment_like  %>
-        <% end %>
-      <% end %>
+      <%= render "comments/each_comments", post: post, comment_like: @comment_like %>
     </div>
   </div>
 <% end %>
