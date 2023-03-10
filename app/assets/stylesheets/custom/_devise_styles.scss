@@ -27,3 +27,15 @@
   flex-direction: column;
   align-items: center;
 }
+
+.signup-title {
+  font-family: $body-font;
+  text-align: center;
+  color: lightslategray;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
