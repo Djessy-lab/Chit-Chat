@@ -1,0 +1,2 @@
+<%= turbo_stream.update "comments_#{@post.id}", partial: "comments/each_comments", locals: { post: @post, comment_like: @comment_like } %>
+<%= turbo_stream.update "see_comments_#{@post.id}", partial: "comments/number_comments", locals: { post: @post } %>
