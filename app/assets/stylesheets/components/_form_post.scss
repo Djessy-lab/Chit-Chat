@@ -22,3 +22,13 @@
     color: $button-green;
   }
 }
+
+.children-post-select{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-check-label {
+  display: flex;
+  flex-direction: column;
+}
