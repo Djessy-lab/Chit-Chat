@@ -17,3 +17,8 @@
   align-items: center;
   color: $grey;
 }
+
+.background-white {
+  background-color: white;
+  border-top: 1px solid $card-border-grey;
+}
