@@ -1,12 +1,12 @@
 .card-container {
 display: flex;
 flex-direction: column;
-flex: 1 0 auto;
+
 // border: 1px solid $card-border-grey;
-margin: 10px 0;
+margin: 5px 0;
 padding: 10px;
 border-radius: $border-radius;
-box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
+// box-shadow: 23px 19px 14px -18px rgba(0,0,0,0.1);
 background-color: white;
 }
 
@@ -45,6 +45,7 @@ background-color: white;
 }
 
 .card-icon {
+
   i {
     color : $grey;
     cursor: pointer;
