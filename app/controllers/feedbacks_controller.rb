@@ -13,19 +13,28 @@ class FeedbacksController < ApplicationController
     @feedback.user = current_user
     @feedback.child = @child
     if @feedback.save
-      redirect_to feedbacks_path(@feedback)
-    else
       @sleep_feedback = @child.feedbacks.today.find_by(category: "sleep") || Feedback.new(category: "sleep")
       @food_feedback = @child.feedbacks.today.find_by(category: "food") || Feedback.new(category: "food")
       @diaper_feedback = @child.feedbacks.today.find_by(category: "diaper") || Feedback.new(category: "diaper")
+      respond_to do |format|
+        format.html { redirect_to feedbacks_path }
+        format.turbo_stream
+      end
+    else
       render "feedbacks/index", status: :unprocessable_entity
     end
   end
 
   def update
     @feedback = Feedback.find(params[:id])
-    @feedback.update(feedback_params)
-    redirect_to feedbacks_path(@feedback)
+    @child = @feedback.child
+    if @feedback.update(feedback_params)
+      @sleep_feedback = @child.feedbacks.today.find_by(category: "sleep") || Feedback.new(category: "sleep")
+      @food_feedback = @child.feedbacks.today.find_by(category: "food") || Feedback.new(category: "food")
+      @diaper_feedback = @child.feedbacks.today.find_by(category: "diaper") || Feedback.new(category: "diaper")
+    else
+      render "feedbacks/index", status: :unprocessable_entity
+    end
   end
 
   private
