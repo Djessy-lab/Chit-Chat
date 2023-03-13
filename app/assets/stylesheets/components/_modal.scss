@@ -9,6 +9,10 @@
   }
 }
 
+.modal-title {
+  margin-top: -10px;
+}
+
 
 .modal-footer {
   background-color: #aedac5;
@@ -24,4 +28,17 @@
   background-color: $light-gray;
   text-align: center;
   color: gray;
+}
+
+.select-child {
+  input:checked + label {
+
+    img {
+      border: 3px solid $grey;
+    }
+
+    p {
+      font-weight: 600;
+    }
+  }
 }
