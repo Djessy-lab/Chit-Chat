@@ -89,8 +89,8 @@ olivia.save
 puts "Olivia created"
 
 puts "Creating Riera family..."
-riera = Filiation.create(child_id: olivia.id , user_id: baptiste.id)
-riera2 = Filiation.create(child_id: olivia.id, user_id: julie.id)
+riera = Filiation.create(child_id: olivia.id , user_id: nicolas.id)
+riera2 = Filiation.create(child_id: olivia.id, user_id: sandra.id)
 affiliation_olivia = Filiation.create(child_id: olivia.id, user_id: clem.id)
 puts "Riera family created"
 
