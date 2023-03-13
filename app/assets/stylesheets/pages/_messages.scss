@@ -1,0 +1,26 @@
+.mess-content {
+  position: relative; /* Setup a relative container for our psuedo elements */
+  word-wrap: break-word; /* Make sure the text wraps to multiple lines if long */
+
+  &:before {
+    width: 20px;
+    left: -7px;
+    background-color: $green;
+    border-bottom-right-radius: 16px 14px;
+  }
+
+  &:after {
+    width: 26px;
+    background-color: var(--bs-body-bg); /* All tails have the same bg cutout */
+    left: -26px;
+    border-bottom-left-radius: 10px;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    bottom: 0;
+    height: 25px; /* height of our bubble "tail" - should match the border-radius above */
+    content: '';
+  }
+}
