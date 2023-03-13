@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "feedback_sleep" do %>
     <%= simple_form_for [child, sleep_feedback] do |f| %>
       <%= f.input :category, :as => :hidden %>
-      <%= f.input :rating, collection: (1..3).to_a, label: "Sommeil" %>
+      <%= f.input :rating, collection: (1..3).to_a, label: "Sommeil",input_html: {data: {controller: "star-rating"}} %>
       <%= f.input :content %>
       <div class="form-actions links-login">
         <%= f.button :submit, "Envoyer"%>
