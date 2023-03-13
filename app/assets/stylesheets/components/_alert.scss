@@ -3,4 +3,9 @@
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+  border-radius: $border-radius;
+  font-family: $base-font;
+  background-color: $input-background-green;
+  border-color: $card-border-grey;
+  color: $grey;
 }

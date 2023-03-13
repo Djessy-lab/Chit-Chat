@@ -11,8 +11,7 @@
       <%= f.input :last_name,
                   required: true,
                   autofocus: true, label: "Nom" %>
-      <%#= f.input :role, as: :radio_buttons, collection: User.roles.keys, label: "Vous êtes une :" %>
-        <%= f.label "Vous êtes " %>
+      <%= f.label "Vous êtes " %>
       <div class="choice">
         <%= f.collection_radio_buttons :role, [["nanny", 'Nounou'], ["family", 'Famille']], :first, :last, class: "choice" %>
       </div>
@@ -30,10 +29,11 @@
                   input_html: { autocomplete: "new-password" }, label: "Confirmer le mot de passe" %>
     </div>
 
-    <div class="form-actions links-login">
+    <div class="form-actions links-signup">
       <%= f.button :submit, "Créer un profil" %>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+
 </div>
