@@ -3,6 +3,7 @@ class Child < ApplicationRecord
   has_many :users, through: :filiations
   has_many :child_posts, dependent: :destroy
   has_many :posts, through: :child_posts
+  has_many :feedbacks, dependent: :destroy
   has_many :chatrooms
 
   validates :first_name, presence: true
@@ -10,7 +11,6 @@ class Child < ApplicationRecord
   validates :birthdate, presence: true
 
   has_one_attached :photo
-
 
   has_many :family_filiations, -> { family }, class_name: "Filiation", inverse_of: 'child', dependent: :destroy
   has_many :families, through: :family_filiations, source: :user

@@ -29,3 +29,16 @@
   text-align: center;
   color: gray;
 }
+
+.select-child {
+  input:checked + label {
+
+    img {
+      border: 3px solid $grey;
+    }
+
+    p {
+      font-weight: 600;
+    }
+  }
+}

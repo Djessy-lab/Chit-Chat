@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_075831) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_082704) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_075831) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "category"
+    t.integer "rating"
+    t.text "content"
+    t.bigint "child_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_feedbacks_on_child_id"
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
   create_table "filiations", force: :cascade do |t|
     t.integer "progress", default: 0
     t.bigint "child_id", null: false
@@ -148,6 +160,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_075831) do
   add_foreign_key "comment_likes", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "feedbacks", "children"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "filiations", "children"
   add_foreign_key "filiations", "users"
   add_foreign_key "messages", "chatrooms"

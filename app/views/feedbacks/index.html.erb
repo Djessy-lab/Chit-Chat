@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "feedbacks" do %>
+  <%= simple_form_for [@child, @sleep_feedback] do |f| %>
+    <%= f.input :category %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
+
+  <%= simple_form_for [@child, @food_feedback] do |f| %>
+    <%= f.input :category %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
+
+  <%= simple_form_for [@child, @diaper_feedback] do |f| %>
+    <%= f.input :category %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
+<% end %>
