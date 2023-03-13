@@ -1,0 +1,3 @@
+<%= turbo_stream.update "feedback_sleep", partial: "feedbacks/sleep_form", locals: { child: @child, sleep_feedback: @sleep_feedback } %>
+<%= turbo_stream.update "feedback_food", partial: "feedbacks/food_form", locals: { child: @child, food_feedback: @food_feedback } %>
+<%= turbo_stream.update "feedback_diaper", partial: "feedbacks/diaper_form", locals: { child: @child, diaper_feedback: @diaper_feedback } %>
