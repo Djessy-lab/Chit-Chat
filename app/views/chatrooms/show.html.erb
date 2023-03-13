@@ -1,27 +1,30 @@
 <div class="container chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <h1>#<%= @chatroom.name %></h1>
-  <%= link_to "Toutes mes conversations", chatrooms_path %>
-  <%= link_to "Supprimer cette conversation", chatroom_path(@chatroom), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
+  <h1 class="chatroom-title">#<%= @chatroom.name.capitalize %></h1>
+  <div class="icons">
+    <%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, chatrooms_path %>
+  </div>
    <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
-  <%= simple_form_for [@chatroom, @message],
-                    html: {
-                      data: {
-                        action: "turbo:submit-end->chatroom-subscription#resetForm",
-                        chatroom_subscription_target: "form"
-                        },
-                      class: "d-flex"
-                    } do |f| %>
-    <%= f.input :content,
-      as: :string,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Envoyer", class: "button-green" %>
-  <% end %>
+  <div class="chat-input">
+    <%= simple_form_for [@chatroom, @message],
+                      html: {
+                        data: {
+                          action: "turbo:submit-end->chatroom-subscription#resetForm",
+                          chatroom_subscription_target: "form"
+                          },
+                        class: "d-flex"
+                      } do |f| %>
+      <%= f.input :content,
+        as: :string,
+        label: false,
+        placeholder: "Message ##{@chatroom.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Envoyer", class: "button-green" %>
+    <% end %>
+  </div>
 </div>

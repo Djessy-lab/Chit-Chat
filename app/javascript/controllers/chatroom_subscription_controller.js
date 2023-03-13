@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ["messages", "form"]
 
   connect() {
+    this.scrollToEndMessages()
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
@@ -22,8 +23,12 @@ export default class extends Controller {
     console.log(data);
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     console.log(this.messagesTarget);
-    // this.messagesTarget.scrollTo({top: this.messagesTarget.scrollHeight, behavio: "smooth"})
-    this.formTarget.scrollIntoView({block: "end", behavior: "smooth"})
+    this.scrollToEndMessages()
+    // this.formTarget.scrollIntoView({block: "end", behavior: "smooth"})
+  }
+
+  scrollToEndMessages() {
+    this.messagesTarget.scrollTo({top: this.messagesTarget.scrollHeight, behavior: "smooth"})
   }
 
   disconnect() {
