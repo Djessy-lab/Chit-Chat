@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_101807) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_075831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_101807) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "child_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_chatrooms_on_child_id"
   end
 
   create_table "child_posts", force: :cascade do |t|
@@ -88,6 +96,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_101807) do
     t.index ["user_id"], name: "index_filiations_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "post_likes", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
@@ -123,6 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_101807) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "children"
   add_foreign_key "child_posts", "children"
   add_foreign_key "child_posts", "posts"
   add_foreign_key "comment_likes", "comments"
@@ -131,6 +150,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_101807) do
   add_foreign_key "comments", "users"
   add_foreign_key "filiations", "children"
   add_foreign_key "filiations", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "post_likes", "posts"
   add_foreign_key "post_likes", "users"
   add_foreign_key "posts", "users"

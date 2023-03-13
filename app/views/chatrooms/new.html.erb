@@ -1,0 +1,7 @@
+
+
+<%= simple_form_for @chatroom do |f| %>
+  <%= f.input :name, label: "Nom de la conversation" %>
+  <%= f.association :child, as: :radio_buttons, collection: current_user.children, label: "Enfant" %>
+  <%= f.button :submit %>
+<% end %>
