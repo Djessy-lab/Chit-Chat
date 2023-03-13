@@ -28,9 +28,7 @@
                 <div class="modal-body">
                   <%= f.input :content, label: "Contenu" %>
                   <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
-                  <%# <%= f.association :children, as: :check_boxes, collection: current_user.children, label: "Enfants" %>
                   <fieldset class="mb-3 check_boxes optional post_children">
-                    <%# <legend class="col-form-label pt-0">Enfants</legend> %>
                       <input type="hidden" name="post[child_ids][]" value="" autocomplete="off" >
                         <div class="children-post-select">
                         <% current_user.children.each do |child| %>
