@@ -1,18 +1,29 @@
 <%= render "shared/navbar" %>
 
-<div class="select-children">
-  <% @children.each do |child| %>
-  <div class="select-child-feed">
-    <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
-      <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
-      <p><%= child.first_name %></p>
-    <% end %>
-  </div>
-  <% end %>
-</div>
+  <% if current_user.nanny? %>
+    <div class="select-children">
+      <% @children.each do |child| %>
+      <div class="select-child-feed">
+        <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
+          <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+          <p><%= child.first_name %></p>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
 
-<%= turbo_frame_tag "feedbacks" do %>
-<p></p>
-<% end %>
+    <%= turbo_frame_tag "feedbacks" do %>
+    <p></p>
+    <% end %>
+  <% else %>
+    <% @children.each do |child| %>
+      <%= child.name %>
+        <% child.feedbacks.each do |feedback| %>
+          <%= feedback.category %>
+          <%= feedback.content %>
+          <%= feedback.rating %>
+        <% end %>
+      <% end %>
+  <% end %>
 
 <%= render "shared/navmenu" %>
