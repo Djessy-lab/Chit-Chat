@@ -1,9 +1,15 @@
 <%= render "shared/navbar" %>
 
 <% @children.each do |child| %>
-  <%= link_to child_feedbacks_path(child) do %>
+  <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
     <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
     <p><%= child.first_name %></p>
   <% end %>
 <% end %>
+
+<%= turbo_frame_tag "feedbacks" do %>
+<p></p>
+<% end %>
+
+
 <%= render "shared/navmenu" %>

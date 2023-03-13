@@ -8,7 +8,10 @@ class User < ApplicationRecord
   has_many :child_posts, through: :children
   has_many :my_posts, through: :child_posts, source: :post
   has_many :posts, dependent: :destroy
+  has_many :comment_likes, dependent: :destroy
+  has_many :post_likes, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+
 
   has_many :accepted_filiations, -> { accepted }, class_name: "Filiation"
   has_many :accepted_children, through: :accepted_filiations, source: :child

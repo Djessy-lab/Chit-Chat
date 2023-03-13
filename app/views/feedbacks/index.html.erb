@@ -1,31 +1,28 @@
-<%= render "shared/navbar" %>
-<h1>Show Feedbacks</h1>
+<%= turbo_frame_tag "feedbacks" do %>
+  <%= simple_form_for [@child, @sleep_feedback] do |f| %>
+    <%= f.input :category, :as => :hidden %>
+    <%= f.input :rating, collection: (1..3).to_a, label: "Sommeil" %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
 
-<%= simple_form_for [@child, @sleep_feedback] do |f| %>
-  <%= f.input :category, :as => :hidden %>
-  <%= f.input :rating, collection: (1..3).to_a, label: "Sommeil" %>
-  <%= f.input :content %>
-  <div class="form-actions links-login">
-    <%= f.button :submit, "Envoyer"%>
-  </div>
+  <%= simple_form_for [@child, @food_feedback] do |f| %>
+    <%= f.input :category, :as => :hidden %>
+    <%= f.input :rating,collection: (1..3).to_a, label: "Nourriture" %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
+
+  <%= simple_form_for [@child, @diaper_feedback] do |f| %>
+    <%= f.input :category, :as => :hidden %>
+    <%= f.input :rating, collection: (1..3).to_a, label: "Couche" %>
+    <%= f.input :content %>
+    <div class="form-actions links-login">
+      <%= f.button :submit, "Envoyer"%>
+    </div>
+  <% end %>
 <% end %>
-
-<%= simple_form_for [@child, @food_feedback] do |f| %>
-  <%= f.input :category, :as => :hidden %>
-  <%= f.input :rating,collection: (1..3).to_a, label: "Nourriture" %>
-  <%= f.input :content %>
-  <div class="form-actions links-login">
-    <%= f.button :submit, "Envoyer"%>
-  </div>
-<% end %>
-
-<%= simple_form_for [@child, @diaper_feedback] do |f| %>
-  <%= f.input :category, :as => :hidden %>
-  <%= f.input :rating, collection: (1..3).to_a, label: "Couche" %>
-  <%= f.input :content %>
-  <div class="form-actions links-login">
-    <%= f.button :submit, "Envoyer"%>
-  </div>
-<% end %>
-
-<%= render "shared/navmenu" %>
