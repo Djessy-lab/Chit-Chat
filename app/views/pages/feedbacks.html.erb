@@ -11,13 +11,14 @@
         <% end %>
       <% end %>
     </div>
-      <%= turbo_frame_tag "feedbacks" do %>
-    <p></p>
+    <%= turbo_frame_tag "feedbacks" do %>
+      <p class="no-feedback">Sélectionner un enfant pour compléter ses transmissions</p>
     <% end %>
   <% else %>
     <% @children.each do |child| %>
       <div data-controller="calendar" data-calendar-url-value="<%= child_parent_feedbacks_path(child) %>">
         <div class="calendar" >
+        <p>Sélectionner une date</p>
         <input id="date-calendar" data-calendar-target="date" data-action="change->calendar#submit" >
         </div>
         <div data-calendar-target="input"></div>

@@ -2,7 +2,7 @@
     <%= simple_form_for [child, food_feedback] do |f| %>
       <div class="feedback-rating">
         <%= f.input :category, :as => :hidden %>
-        <%= f.input :rating,collection: (1..3).to_a, label: "Nourriture",input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :rating,collection: (1..3).to_a, label: "Repas",input_html: {data: {controller: "star-rating"}} %>
       </div>
       <div class="form-post-header feedback-note" id="headingOne">
         <div class="feedback-note-icon">
