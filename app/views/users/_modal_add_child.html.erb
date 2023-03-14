@@ -17,7 +17,8 @@
             <%= f.input :photo, as: :file %>
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom" %>
-            <%= f.input :birthdate, html5: true, label: "Date de naissance" %>
+            <%= f.label "Date de naissance" %>
+            <%= f.input :birthdate, html5: true, label: false%>
             <%= f.fields_for :nanny_filiation do |filiation_f| %>
               <%= filiation_f.input :user_id, as: :select, collection: User.nanny, label: "Ma nounou" %>
             <% end %>

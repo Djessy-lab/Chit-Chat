@@ -14,6 +14,9 @@
   </button>
   <%= render "posts/modal_create", post: @post %>
 <% end %>
+<div class="button-chat">
+  <%= link_to '<i class="fa-regular fa-comment"></i>'.html_safe, chatrooms_path %>
+</div>
 
 <!-- Posts#Index -->
 <% @posts.each do |post| %>

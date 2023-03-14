@@ -54,3 +54,16 @@ a {
     color: $main-green;
   }
 }
+
+.form-control {
+  border-radius: 20px;
+}
+
+.form-select {
+  border-radius: 20px;
+}
+
+#child_birthdate {
+  margin-top: 20px;
+  height: 40px;
+}

@@ -1,7 +1,13 @@
-
-
-<%= simple_form_for @chatroom do |f| %>
-  <%= f.input :name, label: "Nom de la conversation" %>
-  <%= f.association :child, as: :radio_buttons, collection: current_user.children, label: "Enfant" %>
-  <%= f.button :submit %>
+<%= render "shared/navbar" %>
+  <p class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, chatrooms_path %></p>
+<div class="container-chats">
+  <%= simple_form_for @chatroom do |f| %>
+  <div class="center-div"><%= f.label "Nom de la conversation" %></div>
+  <%= f.input :name, label: false %>
+  <div class="card-chat">
+    <div class="select-div"><%= f.association :child, as: :radio_buttons, collection: current_user.children, label: "Enfant" %></div>
+    <%= f.button :submit, class: "button" %>
+  </div>
 <% end %>
+</div>
+<%= render "shared/navmenu" %>
