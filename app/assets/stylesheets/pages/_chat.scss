@@ -4,12 +4,6 @@
   padding: 3px;
 }
 
-// .chat-input {
-//   position: fixed;
-//   bottom: 20px;
-//   width: 90%;
-// }
-
 #message_content {
   border-radius: 35px;
 }
@@ -27,6 +21,10 @@
 .chatroom-title {
   text-align: center;
   font-family: $headers-font;
+}
+
+.fleche {
+  font-size: 31px;
 }
 
 .title-chatrooms {
@@ -70,12 +68,55 @@
 
 .button {
   border-radius: $border-radius;
-  background-color: $main-green;
+  background-color: $button-green;
   border: none;
   width: 50%;
   padding: 5px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+
+.button-chat {
+  border-radius: $border-radius;
+  background-color: $button-green;
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 30px;
+  position: fixed;
+  bottom: 18vh;
+  right: 5.5vh;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.button-chat:hover {
+  border: 1px solid;
+  color: $button-green;
+  transition: all .3s;
+}
+
+.center-div {
+  font-family: $headers-font;
+  font-size: 30px;
+  font-weight: bold;
+  color: gray;
+}
+
+.card-chat {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.container-chats {
+  margin-top: 150px;
 }
 
 .container-chatroom {
@@ -101,10 +142,14 @@
 }
 
 .card-chatroom a {
-  color: white;
+  color: gray;
 }
 
 .participants {
   font-size: 12px;
-  color: white;
+  color: gray;
+}
+
+.poubelle {
+  font-size: 20px;
 }
