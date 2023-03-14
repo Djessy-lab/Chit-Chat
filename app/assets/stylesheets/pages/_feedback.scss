@@ -57,6 +57,11 @@
   justify-content: center;
 }
 
+
+.gl-star-rating--stars[class*=" s"] > span {
+    margin: 0 5px;
+}
+
 .feedback-note {
   flex-direction: column;
   margin-left: 0;

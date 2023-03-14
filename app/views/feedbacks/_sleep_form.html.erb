@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "feedback_sleep", class: "feedback-card" do %>
     <%= simple_form_for [child, sleep_feedback] do |f| %>
-      <div class="feedback-rating">
+      <div class="feedback-rating sleep-rating">
         <%= f.input :category, :as => :hidden %>
         <%= f.input :rating, collection: (1..3).to_a, label: "Sommeil",input_html: {data: {controller: "star-rating"}} %>
       </div>
