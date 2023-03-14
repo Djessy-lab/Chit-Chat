@@ -1,27 +1,99 @@
-<div>
+<div class="card-parent-feedback">
   <h1>Sommeil</h1>
   <% if @sleep_feedback.nil? %>
-    <p>Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de feedback ce jour</p>
   <% else %>
-    <p><%= @sleep_feedback.rating %></p>
+    <% if @sleep_feedback.rating == nil %>
+      <div class="feedback-icon">
+        <%= image_tag "sleep_black.png" %>
+        <%= image_tag "sleep_black.png" %>
+        <%= image_tag "sleep_black.png" %>
+      </div>
+    <% elsif @sleep_feedback.rating == 1 %>
+      <div class="feedback-icon">
+        <%= image_tag "sleep_color.png" %>
+        <%= image_tag "sleep_black.png" %>
+        <%= image_tag "sleep_black.png" %>
+      </div>
+    <% elsif @sleep_feedback.rating == 2 %>
+      <div class="feedback-icon">
+        <%= image_tag "sleep_color.png" %>
+        <%= image_tag "sleep_color.png" %>
+        <%= image_tag "sleep_black.png" %>
+      </div>
+    <% else %>
+      <div class="feedback-icon">
+        <%= image_tag "sleep_color.png" %>
+        <%= image_tag "sleep_color.png" %>
+        <%= image_tag "sleep_color.png" %>
+      </div>
+    <% end %>
     <p><%= @sleep_feedback.content %></p>
   <% end %>
 </div>
-<div>
+<div class="card-parent-feedback">
   <h1>Repas</h1>
   <% if @food_feedback.nil? %>
-    <p>Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de feedback ce jour</p>
   <% else %>
-    <p><%= @food_feedback.rating %></p>
+        <% if @food_feedback.rating == nil %>
+      <div class="feedback-icon">
+        <%= image_tag "food_black.png" %>
+        <%= image_tag "food_black.png" %>
+        <%= image_tag "food_black.png" %>
+      </div>
+    <% elsif @food_feedback.rating == 1 %>
+      <div class="feedback-icon">
+        <%= image_tag "food_color.png" %>
+        <%= image_tag "food_black.png" %>
+        <%= image_tag "food_black.png" %>
+      </div>
+    <% elsif @food_feedback.rating == 2 %>
+      <div class="feedback-icon">
+        <%= image_tag "food_color.png" %>
+        <%= image_tag "food_color.png" %>
+        <%= image_tag "food_black.png" %>
+      </div>
+    <% else %>
+      <div class="feedback-icon">
+        <%= image_tag "food_color.png" %>
+        <%= image_tag "food_color.png" %>
+        <%= image_tag "food_color.png" %>
+      </div>
+    <% end %>
     <p><%= @food_feedback.content %></p>
   <% end %>
 </div>
-<div>
+<div class="card-parent-feedback">
   <h1>Couche</h1>
   <% if @diaper_feedback.nil? %>
-    <p>Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de feedback ce jour</p>
   <% else %>
-    <p><%= @diaper_feedback.rating %></p>
+    <% if @diaper_feedback.rating == nil %>
+      <div class="feedback-icon">
+        <%= image_tag "diaper_black.png" %>
+        <%= image_tag "diaper_black.png" %>
+        <%= image_tag "diaper_black.png" %>
+      </div>
+    <% elsif @diaper_feedback.rating == 1 %>
+      <div class="feedback-icon">
+        <%= image_tag "diaper_color.png" %>
+        <%= image_tag "diaper_black.png" %>
+        <%= image_tag "diaper_black.png" %>
+      </div>
+    <% elsif @diaper_feedback.rating == 2 %>
+      <div class="feedback-icon">
+        <%= image_tag "diaper_color.png" %>
+        <%= image_tag "diaper_color.png" %>
+        <%= image_tag "diaper_black.png" %>
+      </div>
+    <% else %>
+      <div class="feedback-icon">
+        <%= image_tag "diaper_color.png" %>
+        <%= image_tag "diaper_color.png" %>
+        <%= image_tag "diaper_color.png" %>
+      </div>
+    <% end %>
     <p><%= @diaper_feedback.content %></p>
   <% end %>
 </div>

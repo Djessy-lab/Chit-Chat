@@ -1,4 +1,55 @@
 .calendar {
+  background-color: white;
+  border-radius: $border-radius;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
 
+  p{
+    color: $grey;
+    font-weight: 500;
+    font-size: 18px;
+  }
 
+  input{
+    text-align: center;
+    font-size: $content-font-size;
+    border-radius: $border-radius;
+    background-color: $input-background-green;
+    border: 1px solid $card-border-grey;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.card-parent-feedback{
+  text-align: center;
+  border-bottom: 1px solid $card-border-grey;
+  margin: 5px;
+  padding: 10px;
+
+  h1{
+    color: $grey;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: $content-font-size;
+  }
+}
+
+.no-feedback {
+  font-style: oblique;
+  color: $grey;
+  text-align: center;
+}
+
+.feedback-icon {
+  margin: 5px;
+
+  img {
+    width: 30px;
+    margin: 0 5px;
+  }
 }
