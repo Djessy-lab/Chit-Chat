@@ -10,5 +10,8 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SelectChildFeedController from "./select_child_feed_controller"
+application.register("select-child-feed", SelectChildFeedController)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)

@@ -9,6 +9,10 @@
 @import "font-awesome";
 @import "star-rating.js/dist/star-rating.css";
 
+:root {
+    --gl-star-size: 28px;
+}
+
 
 // Your CSS partials
 @import "pages/index";
