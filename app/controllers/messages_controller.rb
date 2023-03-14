@@ -13,9 +13,9 @@ class MessagesController < ApplicationController
       @users = @child.users.excluding(current_user)
       @users.each do |user|
         Notification.create(notifiable: @message, receiver: user, sender: current_user)
-        NotificationChannel.broadcast_to(
-          user,
-        )
+        # NotificationChannel.broadcast_to(
+        #   user,
+        # )
       end
       head :ok
     else
