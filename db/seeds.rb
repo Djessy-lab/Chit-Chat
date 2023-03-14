@@ -41,7 +41,7 @@ affiliation_alix = Filiation.create(child_id: alix.id, user_id: clem.id)
 puts "Lignel family created"
 
 puts "Creating Djessy..."
-djessy_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678460405/production/mqzjyd285ztp29wh3h8zm9d8c3ql.jpg")
+djessy_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721022/development/8kkyxt5hg41nkipptxzvrxz8z6wf.jpg")
 djessy = User.new(first_name: "Djessy", last_name: "Coiffé", email: "djessy@gmail.com", password: "azerty", role: 1)
 djessy.photo.attach(io: djessy_photo, filename: "djessy.png", content_type: "image/png")
 djessy.save
