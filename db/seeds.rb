@@ -13,12 +13,12 @@ clem.photo.attach(io: clem_photo, filename: "clem.png", content_type: "image/png
 clem.save
 puts "Clem la nounou d'enfer created"
 
-# puts "Creating Baptiste..."
-# baptiste_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678718461/production/p9zaa06mqgcbcg1lo9n62w2ofhv9.jpg")
-# baptiste = User.new(first_name: "Baptiste", last_name: "Lignel", email: "baptiste@gmail.com", password: "azerty", role: 1)
-# baptiste.photo.attach(io: baptiste_photo, filename: "baptiste.png", content_type: "image/png")
-# baptiste.save
-# puts "Baptiste created"
+puts "Creating Baptiste..."
+baptiste_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721358/development/anbjc9ojb9ku3dkf57bx8as486d5.jpg")
+baptiste = User.new(first_name: "Baptiste", last_name: "Lignel", email: "baptiste@gmail.com", password: "azerty", role: 1)
+baptiste.photo.attach(io: baptiste_photo, filename: "baptiste.png", content_type: "image/png")
+baptiste.save
+puts "Baptiste created"
 
 puts "Creating Julie..."
 julie_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678376339/production/q308l6ej10yqhjexdadkrickpuxx.jpg")
