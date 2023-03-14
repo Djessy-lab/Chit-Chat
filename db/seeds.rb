@@ -95,14 +95,14 @@ affiliation_olivia = Filiation.create(child_id: olivia.id, user_id: clem.id)
 puts "Riera family created"
 
 puts "Creating posts"
-post1_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678461409/production/k9g7hzjrlc2sr715ebfgdoihuwwh.jpg")
+post1_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721028/development/lpp6yriawo7ug2mrgav969528c9a.jpg")
 post1 = Post.new(content: "Ce matin Alix n'a pas eu peur sur le toboggan :)", user_id: clem.id)
 post1.photos.attach(io: post1_photo, filename: "post1.png", content_type: "image/png")
 post1.save
 post1_child1 = ChildPost.create(child_id: alix.id , post_id: post1.id)
 
-post2_photo1 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465613/production/44zbho8lhwsb3p5h8z2nfhhxkow8.jpg")
-post2_photo2 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465615/production/j1pxtmp0d2avqfjp4yu61kph9pmd.jpg")
+post2_photo1 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721031/development/32zpme8a2oowhhwybf0uqfw8nfsk.jpg")
+post2_photo2 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721033/development/m35rjn8pu03wiz5cqjx45ador2iu.jpg")
 post2 = Post.new(content: "Ce matin nous avons joué à l'intérieur à cause de la pluie mais tout le monde s'est bien amusé", user_id: clem.id)
 post2.photos.attach(io: post2_photo1, filename: "post2_photo1.png", content_type: "image/png")
 post2.photos.attach(io: post2_photo2, filename: "post2_photo2.png", content_type: "image/png")
@@ -110,7 +110,7 @@ post2.save
 post2_child1 = ChildPost.create(child_id: alix.id , post_id: post2.id)
 post2_child2 = ChildPost.create(child_id: zoé.id , post_id: post2.id)
 
-post3_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678461556/production/1kvwe4j2u2l6p40mrp8mqerwcct3.jpg")
+post3_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721384/development/vqmgq1jm0ftoyq86bssr3g7tl22v.jpg")
 post3 = Post.new(content: "Zoé a fait une longue sieste et a mangé son gouter avec appétit !", user_id: clem.id)
 post3.photos.attach(io: post3_photo, filename: "post3.png", content_type: "image/png")
 post3.save
