@@ -1,6 +1,14 @@
 .select-children {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.edit_feedback {
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .select-child-feed {
@@ -12,9 +20,45 @@
   margin: 5px;
   border-radius: $border-radius;
   background-color: white;
+}
 
-  p {
-    margin: 10px 0 0 0;
+.feedback-card, .feedback-card-food {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+  margin: 5px;
+}
+
+.feedback-card-food {
+  border-top: 1px solid $card-border-grey;
+  border-bottom: 1px solid $card-border-grey;
+}
+
+.feedback-rating {
+  display: flex;
+  justify-content: center;
+}
+
+.feedback-note {
+  flex-direction: column;
+  margin-left: 0;
+}
+
+.feedback-note-icon {
+  margin-bottom: 5px;
+
+  i {
+    color: #828282;
   }
+}
 
+.button-feedback {
+
+  input.btn {
+    font-size: 18px;
+    padding: 6px 10px;
+    background-color: $main-green;
+  }
 }

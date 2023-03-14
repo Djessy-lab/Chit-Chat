@@ -1,9 +1,21 @@
-<%= turbo_frame_tag "feedback_food" do %>
+<%= turbo_frame_tag "feedback_food",class: "feedback-card-food" do %>
     <%= simple_form_for [child, food_feedback] do |f| %>
-      <%= f.input :category, :as => :hidden %>
-      <%= f.input :rating,collection: (1..3).to_a, label: "Nourriture",input_html: {data: {controller: "star-rating"}} %>
-      <%= f.input :content %>
-      <div class="form-actions links-login">
+      <div class="feedback-rating">
+        <%= f.input :category, :as => :hidden %>
+        <%= f.input :rating,collection: (1..3).to_a, label: "Nourriture",input_html: {data: {controller: "star-rating"}} %>
+      </div>
+      <div class="form-post-header feedback-note" id="headingOne">
+        <div class="feedback-note-icon">
+          <button class="btn hover-green" data-bs-toggle="collapse" data-bs-target="#collapse<%=food_feedback.id%>" aria-expanded="false" aria-controls="collapse<%=food_feedback.id%>">
+            <i class="fa-regular fa-pen-to-square hover-green"></i>
+            Note
+          </button>
+        </div>
+      </div>
+      <div id="collapse<%=food_feedback.id%>" class="collapse">
+        <%= f.input :content, label: false %>
+      </div>
+      <div class="form-actions button-feedback">
         <%= f.button :submit, "Envoyer"%>
       </div>
     <% end %>
