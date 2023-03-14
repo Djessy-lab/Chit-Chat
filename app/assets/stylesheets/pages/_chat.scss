@@ -30,6 +30,8 @@
 .title-chatrooms {
   text-align: center;
   font-family: $headers-font;
+  font-weight: bold;
+  color: gray;
 }
 
 .icons {
@@ -99,9 +101,10 @@
   transition: all .3s;
 }
 
-.center-div {
+.center-dev {
+  text-align: center;
   font-family: $headers-font;
-  font-size: 30px;
+  font-size: 29px;
   font-weight: bold;
   color: gray;
 }
@@ -136,8 +139,8 @@
   border-radius: $border-radius;
   list-style: none;
   width: 90%;
+  font-size: 36px;
   padding: 10px;
-  font-size: 40px;
   background-color: #aedac5;
 }
 
@@ -146,7 +149,7 @@
 }
 
 .participants {
-  font-size: 12px;
+  font-size: 10px;
   color: gray;
 }
 

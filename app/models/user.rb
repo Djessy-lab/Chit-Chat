@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_many :comment_likes, dependent: :destroy
   has_many :post_likes, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
-
+  has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   has_many :accepted_filiations, -> { accepted }, class_name: "Filiation"
   has_many :accepted_children, through: :accepted_filiations, source: :child

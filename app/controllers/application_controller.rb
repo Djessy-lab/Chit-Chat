@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :role, :photo])
   end
+
+  def default_url_options
+    { host: ENV["www.chit-chat.website"] || "localhost:3000" }
+  end
 end

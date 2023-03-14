@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CalendarController from "./calendar_controller"
+application.register("calendar", CalendarController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -15,3 +18,6 @@ application.register("select-child-feed", SelectChildFeedController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

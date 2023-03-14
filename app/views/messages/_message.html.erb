@@ -7,7 +7,7 @@
   <p class="mess-content"><%= message.content %></p>
   <small>
     <div class="name-message date">
-      <i><%= message.created_at.strftime("%d %m %y à %H:%M %S") %></i>
+      <i><%= message.created_at.in_time_zone("Europe/Paris").strftime("%d %m %y à %H:%M %S") %></i>
     </div>
   </small>
 </div>

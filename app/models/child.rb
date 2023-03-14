@@ -4,7 +4,7 @@ class Child < ApplicationRecord
   has_many :child_posts, dependent: :destroy
   has_many :posts, through: :child_posts
   has_many :feedbacks, dependent: :destroy
-  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
