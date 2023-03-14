@@ -9,6 +9,14 @@ class MessagesController < ApplicationController
         @chatroom,
         render_to_string(partial: "message", locals: { message: @message })
       )
+      @child = @chatroom.child
+      @users = @child.users.excluding(current_user)
+      @users.each do |user|
+        Notification.create(notifiable: @message, receiver: user, sender: current_user)
+        NotificationChannel.broadcast_to(
+          user,
+        )
+      end
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity
