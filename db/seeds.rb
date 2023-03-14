@@ -68,7 +68,7 @@ filiation_zoé = Filiation.create(child_id: zoé.id, user_id: clem.id)
 puts "Coiffé family created"
 
 puts "Creating Nicolas..."
-nicolas_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465451/production/mqusud6nzn6cwmjak2z5xvyfe084.jpg")
+nicolas_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721020/development/6dum45msgfuun6c7js20r5figdxs.jpg")
 nicolas = User.new(first_name: "Nicolas", last_name: "Riera", email: "nicolas@gmail.com", password: "azerty", role: 1)
 nicolas.photo.attach(io: nicolas_photo, filename: "nicolas.png", content_type: "image/png")
 nicolas.save
