@@ -75,7 +75,7 @@ nicolas.save
 puts "Nicolas created"
 
 puts "Creating Sandra..."
-sandra_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678460896/production/d1m20mzy2gpi0mznzz29ch3mf8r1.jpg")
+sandra_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721023/development/ekk2r4yrqnzib1i2sap56tp9l970.jpg")
 sandra = User.new(first_name: "Sandra", last_name: "Riera", email: "sandra@gmail.com", password: "azerty", role: 1)
 sandra.photo.attach(io: sandra_photo, filename: "sandra.png", content_type: "image/png")
 sandra.save
