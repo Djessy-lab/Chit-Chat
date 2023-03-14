@@ -11,7 +11,22 @@
 @import "star-rating.js/dist/star-rating.css";
 
 :root {
-    --gl-star-size: 28px;
+  --gl-star-size: 30px;
+
+  .diaper-rating{
+  --gl-star-empty: url(diaper_black.png);
+  --gl-star-full: url(diaper_color.png);
+  }
+
+  .sleep-rating {
+    --gl-star-empty: url(sleep_black.png);
+    --gl-star-full: url(sleep_color.png);
+  }
+
+  .food-rating{
+    --gl-star-empty: url(food_black.png);
+    --gl-star-full: url(food_color.png);
+    }
 }
 
 @import "tom-select/dist/css/tom-select.min.css";
