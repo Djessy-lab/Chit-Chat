@@ -17,13 +17,13 @@
     <% end %>
   <% else %>
     <% @children.each do |child| %>
-      <%= child.name %>
-        <% child.feedbacks.each do |feedback| %>
-          <%= feedback.category %>
-          <%= feedback.content %>
-          <%= feedback.rating %>
-        <% end %>
-      <% end %>
+      <div data-controller="calendar" data-calendar-url-value="<%= child_parent_feedbacks_path(child) %>">
+        <div class="calendar" >
+        <input id="date-calendar" data-calendar-target="date" data-action="change->calendar#submit" >
+        </div>
+        <div data-calendar-target="input"></div>
+      </div>
+    <% end %>
   <% end %>
 
 <%= render "shared/navmenu" %>
