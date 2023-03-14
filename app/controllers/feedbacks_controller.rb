@@ -7,6 +7,15 @@ class FeedbacksController < ApplicationController
     @diaper_feedback = @child.feedbacks.today.find_by(category: "diaper") || Feedback.new(category: "diaper")
   end
 
+  def parent_index
+    @date = Date.parse(params[:date])
+    @child = Child.find(params[:child_id])
+    @sleep_feedback = @child.feedbacks.where("DATE(created_at) = ?", @date).find_by(category: "sleep")
+    @food_feedback = @child.feedbacks.where("DATE(created_at) = ?", @date).find_by(category: "food")
+    @diaper_feedback = @child.feedbacks.where("DATE(created_at) = ?", @date).find_by(category: "diaper")
+    render :parent_index, layout: false
+  end
+
   def create
     @feedback = Feedback.new(feedback_params)
     @child = Child.find(params[:child_id])

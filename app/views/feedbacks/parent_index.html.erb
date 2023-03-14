@@ -1,0 +1,27 @@
+<div>
+  <h1>Sommeil</h1>
+  <% if @sleep_feedback.nil? %>
+    <p>Pas de feedback ce jour</p>
+  <% else %>
+    <p><%= @sleep_feedback.rating %></p>
+    <p><%= @sleep_feedback.content %></p>
+  <% end %>
+</div>
+<div>
+  <h1>Repas</h1>
+  <% if @food_feedback.nil? %>
+    <p>Pas de feedback ce jour</p>
+  <% else %>
+    <p><%= @food_feedback.rating %></p>
+    <p><%= @food_feedback.content %></p>
+  <% end %>
+</div>
+<div>
+  <h1>Couche</h1>
+  <% if @diaper_feedback.nil? %>
+    <p>Pas de feedback ce jour</p>
+  <% else %>
+    <p><%= @diaper_feedback.rating %></p>
+    <p><%= @diaper_feedback.content %></p>
+  <% end %>
+</div>
