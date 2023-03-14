@@ -14,7 +14,7 @@ clem.save
 puts "Clem la nounou d'enfer created"
 
 puts "Creating Baptiste..."
-baptiste_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678718461/production/p9zaa06mqgcbcg1lo9n62w2ofhv9.jpg")
+baptiste_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721358/development/anbjc9ojb9ku3dkf57bx8as486d5.jpg")
 baptiste = User.new(first_name: "Baptiste", last_name: "Lignel", email: "baptiste@gmail.com", password: "azerty", role: 1)
 baptiste.photo.attach(io: baptiste_photo, filename: "baptiste.png", content_type: "image/png")
 baptiste.save
@@ -41,7 +41,7 @@ affiliation_alix = Filiation.create(child_id: alix.id, user_id: clem.id)
 puts "Lignel family created"
 
 puts "Creating Djessy..."
-djessy_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678460405/production/mqzjyd285ztp29wh3h8zm9d8c3ql.jpg")
+djessy_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721022/development/8kkyxt5hg41nkipptxzvrxz8z6wf.jpg")
 djessy = User.new(first_name: "Djessy", last_name: "Coiffé", email: "djessy@gmail.com", password: "azerty", role: 1)
 djessy.photo.attach(io: djessy_photo, filename: "djessy.png", content_type: "image/png")
 djessy.save
@@ -68,14 +68,14 @@ filiation_zoé = Filiation.create(child_id: zoé.id, user_id: clem.id)
 puts "Coiffé family created"
 
 puts "Creating Nicolas..."
-nicolas_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465451/production/mqusud6nzn6cwmjak2z5xvyfe084.jpg")
+nicolas_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721020/development/6dum45msgfuun6c7js20r5figdxs.jpg")
 nicolas = User.new(first_name: "Nicolas", last_name: "Riera", email: "nicolas@gmail.com", password: "azerty", role: 1)
 nicolas.photo.attach(io: nicolas_photo, filename: "nicolas.png", content_type: "image/png")
 nicolas.save
 puts "Nicolas created"
 
 puts "Creating Sandra..."
-sandra_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678460896/production/d1m20mzy2gpi0mznzz29ch3mf8r1.jpg")
+sandra_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721023/development/ekk2r4yrqnzib1i2sap56tp9l970.jpg")
 sandra = User.new(first_name: "Sandra", last_name: "Riera", email: "sandra@gmail.com", password: "azerty", role: 1)
 sandra.photo.attach(io: sandra_photo, filename: "sandra.png", content_type: "image/png")
 sandra.save
@@ -95,14 +95,14 @@ affiliation_olivia = Filiation.create(child_id: olivia.id, user_id: clem.id)
 puts "Riera family created"
 
 puts "Creating posts"
-post1_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678461409/production/k9g7hzjrlc2sr715ebfgdoihuwwh.jpg")
+post1_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721028/development/lpp6yriawo7ug2mrgav969528c9a.jpg")
 post1 = Post.new(content: "Ce matin Alix n'a pas eu peur sur le toboggan :)", user_id: clem.id)
 post1.photos.attach(io: post1_photo, filename: "post1.png", content_type: "image/png")
 post1.save
 post1_child1 = ChildPost.create(child_id: alix.id , post_id: post1.id)
 
-post2_photo1 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465613/production/44zbho8lhwsb3p5h8z2nfhhxkow8.jpg")
-post2_photo2 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678465615/production/j1pxtmp0d2avqfjp4yu61kph9pmd.jpg")
+post2_photo1 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721031/development/32zpme8a2oowhhwybf0uqfw8nfsk.jpg")
+post2_photo2 = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721033/development/m35rjn8pu03wiz5cqjx45ador2iu.jpg")
 post2 = Post.new(content: "Ce matin nous avons joué à l'intérieur à cause de la pluie mais tout le monde s'est bien amusé", user_id: clem.id)
 post2.photos.attach(io: post2_photo1, filename: "post2_photo1.png", content_type: "image/png")
 post2.photos.attach(io: post2_photo2, filename: "post2_photo2.png", content_type: "image/png")
@@ -110,7 +110,7 @@ post2.save
 post2_child1 = ChildPost.create(child_id: alix.id , post_id: post2.id)
 post2_child2 = ChildPost.create(child_id: zoé.id , post_id: post2.id)
 
-post3_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678461556/production/1kvwe4j2u2l6p40mrp8mqerwcct3.jpg")
+post3_photo = URI.open("https://res.cloudinary.com/ddq1d6u8x/image/upload/v1678721384/development/vqmgq1jm0ftoyq86bssr3g7tl22v.jpg")
 post3 = Post.new(content: "Zoé a fait une longue sieste et a mangé son gouter avec appétit !", user_id: clem.id)
 post3.photos.attach(io: post3_photo, filename: "post3.png", content_type: "image/png")
 post3.save
