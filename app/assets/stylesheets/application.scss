@@ -9,6 +9,11 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "star-rating.js/dist/star-rating.css";
+
+:root {
+    --gl-star-size: 28px;
+}
+
 @import "tom-select/dist/css/tom-select.min.css";
 
 // Your CSS partials

@@ -4,6 +4,10 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
+
+  a:hover {
+    color: #828282
+  }
 }
 
 .edit_feedback {
@@ -22,6 +26,16 @@
   margin: 5px;
   border-radius: $border-radius;
   background-color: white;
+  border: 1px solid white;
+
+  &:hover {
+    border: 1px solid $main-green;
+  }
+}
+
+.feed-background-green {
+  background-color: $main-green;
+  border: 1px solid $main-green;
 }
 
 .feedback-card, .feedback-card-food {
