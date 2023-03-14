@@ -58,13 +58,23 @@
     </style>
   </head>
 
-  <body class="main-container">
+  <body class="main-container" style="height: 100vhmin; border: 10px solid red;">
+    <% display_navbar = content_for?(:display_navbar) ? content_for(:display_navbar) == "true" : true  %>
+      <% if display_navbar %>
+        <%= render "shared/navbar" %>
+      <% end %>
+
 
       <%= render "shared/flashes" %>
 
-      <div class=" container-backgound contenu">
+      <div class="container-backgound contenu">
         <%= yield %>
       </div>
+          <% display_navmenu = content_for?(:display_navmenu) ? content_for(:display_navmenu) == "true" : true  %>
+      <% if display_navmenu %>
+        <%= render "shared/navmenu" %>
+      <% end %>
+
 
   </body>
 </html>

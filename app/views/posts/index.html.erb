@@ -6,7 +6,6 @@
   %>
   <%#= submit_tag "Search", class: "btn btn-primary" %>
 <%# end %>
-<%= render "shared/navbar" %>
 
   <% if current_user.nanny? %>
   <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -38,5 +37,3 @@
 <% if current_user.nanny?  %>
   <%= render "posts/modal_create", post: @post %>
 <% end %>
-
-<%= render "shared/navmenu" %>

@@ -1,3 +1,5 @@
+<% content_for :display_navbar, false %>
+<% content_for :display_navmenu, false %>
 <div class="container-fluid">
   <h2 class="signup-title">Créer un profil</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
