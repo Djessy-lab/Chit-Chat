@@ -4,13 +4,22 @@
     <hr>
       <%= link_to "Nouvelle conversation", new_chatroom_path, class: "button" %>
         <% @chatrooms.each do |chatroom| %>
-         <div class="card-chatroom">
+         <div class="card-chatroom position-relative">
           <%= link_to chatroom.name.capitalize, chatroom_path(chatroom) %>
           <small class="participants"><%= chatroom.child.name %> / <%= current_user.name %></small>
           <p class="poubelle">
             <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, chatroom_path(chatroom), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
           </p>
+          <% if @notifications.from_chatroom(chatroom).any? %>
+           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
+          <% end %>
          </div>
         <% end %>
+
+
+
+
+
+
 </div>
 <%= render "shared/navmenu" %>
