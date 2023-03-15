@@ -23,7 +23,7 @@
               <%= filiation_f.input :user_id, as: :select, collection: User.nanny, label: "Ma nounou", input_html: {data: {controller: "tom-select"}} %>
             <% end %>
             <%= f.fields_for :family_filiations do |filiation_f| %>
-              <%= filiation_f.input :user_id, as: :select, collection: User.family, label: "Ma famille" %>
+              <%= filiation_f.input :user_id, as: :select, collection: User.family, label: "Ma famille", input_html: {data: {controller: "tom-select"}} %>
             <% end %>
       </div>
       <div class="modal-footer">
