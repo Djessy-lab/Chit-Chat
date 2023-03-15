@@ -13,6 +13,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import NotificationSubscriptionController from "./notification_subscription_controller"
+application.register("notification-subscription", NotificationSubscriptionController)
+
 import SelectChildFeedController from "./select_child_feed_controller"
 application.register("select-child-feed", SelectChildFeedController)
 

@@ -16,6 +16,7 @@
 <% end %>
 <div class="button-chat">
   <%= link_to '<i class="fa-regular fa-comment"></i>'.html_safe, chatrooms_path %>
+  <span data-notification-subscription-target="notifButton" class="badge position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><% if @notifications.any? %> <%end%></span>
 </div>
 
 <!-- Posts#Index -->

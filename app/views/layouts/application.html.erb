@@ -60,7 +60,7 @@
     </style>
   </head>
 
-  <body class="main-container">
+  <body class="main-container" data-controller="notification-subscription" data-notification-subscription-receiver-id-value="<%= current_user&.id%>">
 
       <%= render "shared/flashes" %>
 
