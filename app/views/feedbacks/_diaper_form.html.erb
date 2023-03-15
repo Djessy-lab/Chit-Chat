@@ -4,15 +4,15 @@
         <%= f.input :category, :as => :hidden %>
         <%= f.input :rating, collection: (1..3).to_a, label: "Couche",input_html: {data: {controller: "star-rating"}} %>
       </div>
-      <div class="form-post-header feedback-note" id="headingOne">
-        <div class="feedback-note-icon " data-bs-toggle="collapse" data-bs-target="#collapse<%=diaper_feedback.id%>" aria-expanded="false" aria-controls="collapse<%=diaper_feedback.id%>">
-          <button class="btn hover-green" >
+      <div class="form-post-header feedback-note">
+        <div class="feedback-note-icon " data-bs-toggle="collapse" data-bs-target="#collapse_diaper_<%=diaper_feedback.id%>" aria-expanded="false" aria-controls="collapse_diaper_<%=diaper_feedback.id%>">
+          <div class="btn hover-green" >
             <i class="fa-regular fa-pen-to-square hover-green"></i>
             Note
-          </button>
+          </div>
         </div>
         <div class="feedback-note-send">
-          <div id="collapse<%=diaper_feedback.id%>" class="collapse">
+          <div id="collapse_diaper_<%=diaper_feedback.id%>" class="collapse">
             <%= f.input :content, label: false %>
           </div>
           <div class="form-actions button-feedback">
