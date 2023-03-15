@@ -10,7 +10,7 @@ class ChildrenController < ApplicationController
 
   def destroy
     @child.destroy
-    # redirect_to children_path, status: :see_other
+    redirect_to current_user
   end
 
   def update

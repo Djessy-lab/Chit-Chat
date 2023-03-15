@@ -5,6 +5,7 @@
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <%= link_to "Supprimer", child_path(child), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
       <%= simple_form_for [child] do |f| %>
         <div class="modal-body">
               <%= f.input :photo, as: :file %>
