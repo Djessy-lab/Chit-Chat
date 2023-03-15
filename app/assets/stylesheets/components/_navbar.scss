@@ -5,13 +5,14 @@
   top: 0;
   position: sticky;
   width: 100%;
-  transition: all 0.6s ease-out;
+  height: 70px;
+  transition: 0.5s ease-in-out 0s;
 }
 
 .navbar-hidden {
   display: none;
-  transition: all 0.6s ease-out;
 }
+
 
 .logo-navbar {
   display: flex;
