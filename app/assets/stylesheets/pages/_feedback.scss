@@ -54,8 +54,6 @@
   justify-content: center;
   padding: 10px 0 10px 0;
   margin: 5px;
-  border-top: 1px solid $card-border-grey;
-  border-bottom: 1px solid $card-border-grey;
 }
 
 .feedback-rating {
@@ -95,4 +93,9 @@ align-items: center;
     padding: 6px 10px;
     background-color: $main-green;
   }
+}
+
+.bottom-lign {
+  border-bottom: 1px solid $card-border-grey;
+  margin: 0 5px;
 }
