@@ -13,6 +13,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import NavbarHideScrolldownController from "./navbar_hide_scrolldown_controller"
+application.register("navbar-hide-scrolldown", NavbarHideScrolldownController)
+
 import SelectChildFeedController from "./select_child_feed_controller"
 application.register("select-child-feed", SelectChildFeedController)
 

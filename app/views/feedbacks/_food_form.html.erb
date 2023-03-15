@@ -12,11 +12,13 @@
           </button>
         </div>
       </div>
-      <div id="collapse<%=food_feedback.id%>" class="collapse">
-        <%= f.input :content, label: false %>
-      </div>
-      <div class="form-actions button-feedback">
-        <%= f.button :submit, "Envoyer"%>
+      <div class="feedback-note-send">
+        <div id="collapse<%=food_feedback.id%>" class="collapse">
+          <%= f.input :content, label: false %>
+        </div>
+        <div class="form-actions button-feedback">
+          <%= f.button :submit, "Envoyer"%>
+        </div>
       </div>
     <% end %>
   <% end %>

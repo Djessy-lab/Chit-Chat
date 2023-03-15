@@ -11,12 +11,14 @@
             Note
           </button>
         </div>
-        <div id="collapse<%=diaper_feedback.id%>" class="collapse">
-          <%= f.input :content, label: false %>
+        <div class="feedback-note-send">
+          <div id="collapse<%=diaper_feedback.id%>" class="collapse">
+            <%= f.input :content, label: false %>
+          </div>
+          <div class="form-actions button-feedback">
+            <%= f.button :submit, "Envoyer"%>
+          </div>
         </div>
-      </div>
-      <div class="form-actions button-feedback">
-        <%= f.button :submit, "Envoyer"%>
       </div>
     <% end %>
   <% end %>

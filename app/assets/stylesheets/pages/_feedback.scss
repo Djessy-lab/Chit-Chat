@@ -38,7 +38,7 @@
   border: 1px solid $main-green;
 }
 
-.feedback-card, .feedback-card-food {
+.feedback-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,6 +48,12 @@
 }
 
 .feedback-card-food {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+  margin: 5px;
   border-top: 1px solid $card-border-grey;
   border-bottom: 1px solid $card-border-grey;
 }
@@ -55,6 +61,7 @@
 .feedback-rating {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 
@@ -73,6 +80,12 @@
   i {
     color: #828282;
   }
+}
+
+.feedback-note-send {
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .button-feedback {
