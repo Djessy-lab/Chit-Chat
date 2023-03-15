@@ -16,6 +16,9 @@ application.register("hello", HelloController)
 import NotificationSubscriptionController from "./notification_subscription_controller"
 application.register("notification-subscription", NotificationSubscriptionController)
 
+import NavbarHideScrolldownController from "./navbar_hide_scrolldown_controller"
+application.register("navbar-hide-scrolldown", NavbarHideScrolldownController)
+
 import SelectChildFeedController from "./select_child_feed_controller"
 application.register("select-child-feed", SelectChildFeedController)
 

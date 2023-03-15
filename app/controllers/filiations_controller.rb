@@ -17,7 +17,7 @@ class FiliationsController < ApplicationController
       progress = :declined
     end
     @filiation.update(progress:)
-    redirect_to @filiation.user
+    redirect_to user_path(current_user)
   end
 
   private

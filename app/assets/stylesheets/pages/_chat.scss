@@ -80,22 +80,24 @@
 
 
 .button-chat {
-  border-radius: $border-radius;
-  background-color: $button-green;
   border: none;
-  width: 50px;
-  height: 50px;
-  padding: 5px;
+  background-color: $button-green;
   text-align: center;
-  margin-bottom: 30px;
+  border-radius: 10%;
+  color: white;
+  font-weight: bolder;
+  font-size: 34px;
   position: fixed;
-  bottom: 18vh;
+  bottom: 14vh;
   right: 5.5vh;
-  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  padding: 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .button-chat:hover {
+  background-color: transparent;
   border: 1px solid;
   color: $button-green;
   transition: all .3s;
