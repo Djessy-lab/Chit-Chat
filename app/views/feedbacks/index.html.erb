@@ -1,5 +1,7 @@
 <%= turbo_frame_tag "feedbacks" do %>
   <%= render "feedbacks/sleep_form", child: @child, sleep_feedback: @sleep_feedback %>
+  <div class="bottom-lign"></div>
   <%= render "feedbacks/food_form", child: @child, food_feedback: @food_feedback %>
+  <div class="bottom-lign"></div>
   <%= render "feedbacks/diaper_form", child: @child, diaper_feedback: @diaper_feedback %>
 <% end %>
