@@ -1,0 +1,37 @@
+.paper-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+  img {
+    border-radius: 14px;
+    width: 300px;
+    height: 500px;
+  }
+}
+
+.paper-name {
+  text-align: center;
+  font-weight: bold;
+  color: gray;
+  margin-top: 20px;
+}
+
+.button-dl {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paper-link {
+  display: flex;
+  justify-content: space-between;
+  font-size: 27px;
+  margin: 0 auto;
+  width: 200px;
+}
+
+
+.paper-button {
+  text-align: center;
+  margin-top: 60px;
+}
