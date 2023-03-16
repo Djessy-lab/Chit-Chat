@@ -23,23 +23,30 @@
 }
 
 .paper-link {
-  margin: 10px;
-  padding: 10px;
+  margin: 16px;
+  padding: 8px;
   border-radius: $border-radius;
   background-color: white;
-  width: 96%;
+  width: 93%;
   display: flex;
   align-items: center;
 
   img {
-    height: 30px;
-    padding: 0 10px;
+    height: 38px;
+    padding: 0 16px;
   }
 
   p {
-    font-size: 18px;
+    font-size: 22px;
     margin: 0;
     padding: 0 10px;
+  }
+
+  .date {
+    color: $grey;
+    margin: 0;
+    font-size: $date-font-size;
+    margin-bottom: 8px;
   }
 }
 
@@ -51,4 +58,8 @@
   display: flex;
   justify-content: space-between;
   margin: 0 12px;
+}
+
+.paper-cards {
+  padding: 10px 5px;
 }
