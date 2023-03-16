@@ -1,6 +1,9 @@
 <%= render "shared/navbar" %>
 <h1 class="paper-name"><%= @paper.name.capitalize %></h1>
-<div class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %></div>
+<div class="paper-icons">
+  <div class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %></div>
+  <p class="trash-size"><%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, paper_path(@paper), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %></p>
+</div>
 <% if @paper.photo.key %>
   <div class="paper-img">
     <%= cl_image_tag @paper.photo.key %>

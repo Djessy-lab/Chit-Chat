@@ -1,5 +1,5 @@
 <%= render "shared/navbar" %>
-<%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %>
+<div class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %></div>
 <%= simple_form_for @paper do |f| %>
   <div class="modal-body">
     <fieldset class="mb-3 check_boxes optional post_children">
