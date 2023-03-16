@@ -23,11 +23,13 @@
 .card-even-image {
   object-fit: cover;
   width: 100%;
+  height: 300px;
   border-radius: $border-radius-photo;
 }
 
 .card-odd-image {
   object-fit: cover;
   width: 100%;
+  height: 200px;
   border-radius: $border-radius-photo;
 }

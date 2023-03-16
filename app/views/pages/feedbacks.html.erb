@@ -5,7 +5,7 @@
     <% @children.each do |child| %>
       <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
       <div class="select-child-feed" data-controller="select-child-feed"  data-select-child-feed-target="background" data-action="click->select-child-feed#changeColor">
-          <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+          <%= cl_image_tag child.photo.key, height: 100, width: 100, crop: :thumb, gravity: :face, class: "avatar"%>
           <p><%= child.first_name %></p>
       </div>
       <% end %>

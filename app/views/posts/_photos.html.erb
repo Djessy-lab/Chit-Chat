@@ -6,13 +6,13 @@
   <% elsif post.photos.size.even? %>
     <div class="card-even">
       <% post.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 150, crop: :fill, gravity: :faces, class: "card-even-image" %>
+        <%= cl_image_tag photo.key, quality: :auto, crop: :fill, gravity: :faces, class: "card-even-image" %>
       <% end %>
     </div>
   <% elsif post.photos.size.odd? %>
     <div class="card-odd">
       <% post.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 150, crop: :fill, gravity: :faces, class: "card-odd-image" %>
+        <%= cl_image_tag photo.key, quality: :auto, crop: :fill, gravity: :faces, class: "card-odd-image" %>
       <% end %>
     </div>
   <% end %>
