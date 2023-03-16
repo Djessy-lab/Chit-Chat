@@ -3,7 +3,7 @@
   <hr>
   <% @chatrooms.each do |chatroom| %>
     <div class="card-chatroom position-relative">
-      <%= image_tag "stroller.png" %>
+      <%= image_tag "chat.png" %>
       <div class="baby-participants-names">
         <%= link_to chatroom.name.capitalize, chatroom_path(chatroom) %>
         <p class="participants"><%= chatroom.child.filiation_names(current_user)%></p>
