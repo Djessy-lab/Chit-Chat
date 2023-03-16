@@ -1,9 +1,12 @@
 <%= turbo_frame_tag "papers" do %>
-  <div class="feedback-card">
+  <div class="paper-cards">
     <% papers.each do |paper| %>
         <%= link_to child_paper_path(child, paper), class: "paper-link", data: {turbo: "false"} do %>
           <%= image_tag "papers.png" %>
-          <p><%= paper.name.capitalize %></p>
+          <div class="papers-name-date">
+            <p><%= paper.name.capitalize %></p>
+            <p class="date"><%= paper.created_at.strftime("ajouté le %d/%m/%y") %></p>
+          </div>
         <% end %>
     <% end %>
     <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
