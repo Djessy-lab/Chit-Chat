@@ -3,7 +3,7 @@
 <div class= "center-div">
 <div class="fond">
 </div>
-  <%= cl_image_tag @user.photo.key, height: 90, width: 90, crop: :thumb, gravity: :face, class: "avatar-profile"%>
+  <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :thumb, gravity: :face, class: "avatar-profile"%>
   <br>
   <h3 class="profile-name"><%= @user.first_name.capitalize  %> <%= @user.last_name.capitalize %></h3>
   <br>
