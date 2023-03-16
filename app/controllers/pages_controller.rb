@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def feedbacks
     @children = current_user.children
   end
+
+  def papers
+    @children = current_user.accepted_children
+  end
 end

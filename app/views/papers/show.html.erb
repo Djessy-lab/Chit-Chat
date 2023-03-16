@@ -5,6 +5,6 @@
   <div class="paper-img">
     <%= cl_image_tag @paper.photo.key %>
   </div>
-  <div class="button-dl">  <%= link_to 'Telecharger', paper_path(@paper), class: "button" %></div>
+  <div class="button-dl">  <%= link_to 'Telecharger', child_paper_path(@paper), class: "button" %></div>
 <% end %>
 <%= render "shared/navmenu" %>
