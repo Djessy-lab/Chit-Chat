@@ -16,7 +16,7 @@
   <% end %>
 <% else %>
   <% @children.each do |child| %>
-    <%= render "papers/papers", papers: child.papers, child: child %>
+    <%= render "papers/papers", papers: child.papers.order(created_at: :desc), child: child %>
   <% end %>
 <% end %>
 
