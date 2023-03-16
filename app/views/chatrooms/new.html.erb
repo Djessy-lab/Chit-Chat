@@ -2,12 +2,28 @@
   <p class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, chatrooms_path %></p>
 <div class="container-chats">
   <%= simple_form_for @chatroom do |f| %>
-  <div class="center-dev"><%= f.label "Nom de la conversation" %></div>
+  <div class="center-dev"><%= f.label "Nouvelle conversation" %></div>
   <%= f.input :name, label: false %>
-  <div class="card-chat">
-    <div class="select-div"><%= f.association :child, as: :radio_buttons, collection: current_user.children, label: "Enfant" %></div>
-    <%= f.button :submit, class: "button" %>
-  </div>
+    <div class="modal-body">
+      <fieldset class="mb-3 check_boxes optional post_children">
+              <input type="hidden" name="chatroom[child_id]" value="" autocomplete="off" >
+                <div class="children-post-select">
+                  <% current_user.children.each do |child| %>
+                  <div class="form-check select-child">
+                    <input class="form-check-input check_boxes optional visually-hidden"
+                          type="radio"
+                          value="<%= child.id %>"
+                          name="chatroom[child_id]" id="chatroom_child_id_<%= child.id %>">
+                    <label class="form-check-label collection_check_boxes" for="chatroom_child_id_<%= child.id %>">
+                      <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+                      <p><%= child.first_name %></p>
+                    </label>
+                  </div>
+                  <% end %>
+                </div>
+          </fieldset>
+      <%= f.button :submit, "Créer", class: "button" %>
+    </div>
 <% end %>
 </div>
 <%= render "shared/navmenu" %>
