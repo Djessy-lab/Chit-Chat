@@ -52,3 +52,35 @@
   justify-content: space-between;
   margin: 0 12px;
 }
+
+
+.container-new-paper {
+  padding: 5px;
+  height: 100%;
+}
+
+.new-paper-form {
+  width: 80vw;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: $border-radius;
+}
+
+.paper-new-button {
+  text-align: center;
+  margin-top: 60px;
+  border-radius: $border-radius;
+
+  .btn {
+    padding: 0;
+  }
+}
+.new-paper-select-child {
+  border-radius: $border-radius;
+  align-items: center;
+  margin-bottom: 20px;
+
+  p {
+    margin: 0;
+  }
+}
