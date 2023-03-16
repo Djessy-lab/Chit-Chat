@@ -2,12 +2,10 @@
 <%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %>
 <%= simple_form_for @paper do |f| %>
   <div class="modal-body">
-    <%= f.input :name, label: "Nom" %>
-    <%= f.input :photo, as: :file, label: "Document" %>
     <fieldset class="mb-3 check_boxes optional post_children">
         <input type="hidden" name="paper[child_id]" value="" autocomplete="off" >
           <div class="children-post-select">
-          <% current_user.children.each do |child| %>
+            <% current_user.children.each do |child| %>
             <div class="form-check select-child">
               <input class="form-check-input check_boxes optional visually-hidden"
                      type="radio"
@@ -18,9 +16,11 @@
                 <p><%= child.first_name %></p>
               </label>
             </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
     </fieldset>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :photo, as: :file, label: "Document" %>
   </div>
   <div class="modal-footer">
       <%= f.button :submit, "Valider" %>
