@@ -1,0 +1,7 @@
+<%= render "shared/navbar" %>
+<h1><%= @paper.name %></h1>
+<%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %>
+<% if @paper.photo.key %>
+<%= cl_image_tag @paper.photo.key, height: 350, width: 300 %>
+<% end %>
+<%= render "shared/navmenu" %>
