@@ -69,13 +69,15 @@
 }
 
 .button {
-  border-radius: $border-radius;
-  background-color: $button-green;
-  border: none;
-  width: 50%;
-  padding: 5px;
-  text-align: center;
-  margin-bottom: 30px;
+  // border-radius: $border-radius;
+  // background-color: $button-green;
+  // border: none;
+  // width: 15%;
+  // padding: 5px;
+  // text-align: center;
+  // margin-bottom: 30px;
+  // position: fixed;
+  // bottom: 70px;
 }
 
 
@@ -142,7 +144,9 @@
   list-style: none;
   width: 90%;
   font-size: 36px;
-  padding: 10px;
+  // padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   background-color: #aedac5;
 }
 
@@ -157,4 +161,15 @@
 
 .poubelle {
   font-size: 20px;
+  margin: 0;
+}
+
+.card-chatroom > img {
+  height: 40px;
+}
+
+.baby-participants-names{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
