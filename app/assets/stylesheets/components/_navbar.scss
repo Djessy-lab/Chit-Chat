@@ -1,16 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $main-green;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   position: sticky;
   width: 100%;
   height: 70px;
-  transition: 0.5s ease-in-out 0s;
+  transition: margin-right 4s;
 }
 
 .navbar-hidden {
   display: none;
+  transition: margin-right 4s;
 }
 
 

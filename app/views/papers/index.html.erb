@@ -1,0 +1,11 @@
+<%= render "shared/navbar" %>
+<h1 class="paper-name">Mes documents</h1>
+<hr>
+<% @papers.each do |paper| %>
+  <div class="paper-link">
+    <%= link_to paper.name.capitalize, paper_path(paper) %>
+    <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, paper_path(paper), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
+  </div>
+<% end %>
+<div class="paper-button"><%= link_to "Ajouter un document", new_paper_path, class: "button" %></div>
+<%= render "shared/navmenu" %>

@@ -1,0 +1,10 @@
+<%= render "shared/navbar" %>
+<h1 class="paper-name"><%= @paper.name.capitalize %></h1>
+<div class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, papers_path %></div>
+<% if @paper.photo.key %>
+  <div class="paper-img">
+    <%= cl_image_tag @paper.photo.key %>
+  </div>
+  <div class="button-dl">  <%= link_to 'Telecharger', paper_path(@paper), class: "button" %></div>
+<% end %>
+<%= render "shared/navmenu" %>

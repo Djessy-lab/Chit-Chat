@@ -25,6 +25,7 @@
 
 .fleche {
   font-size: 31px;
+  margin-left: 5px;
 }
 
 .title-chatrooms {
@@ -44,6 +45,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 5px;
 }
 
 .messages {
@@ -123,7 +125,7 @@
 }
 
 .container-chats {
-  margin-top: 150px;
+  margin: 150px 5px 5px 5px;
 }
 
 .container-chatroom {
