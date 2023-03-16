@@ -1,7 +1,7 @@
 <div class="card-parent-feedback">
   <h1>Sommeil</h1>
   <% if @sleep_feedback.nil? %>
-    <p class="no-feedback">Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de transmission ce jour</p>
   <% else %>
     <% if @sleep_feedback.rating == nil %>
       <div class="feedback-icon">
@@ -34,7 +34,7 @@
 <div class="card-parent-feedback">
   <h1>Repas</h1>
   <% if @food_feedback.nil? %>
-    <p class="no-feedback">Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de transmission ce jour</p>
   <% else %>
         <% if @food_feedback.rating == nil %>
       <div class="feedback-icon">
@@ -67,7 +67,7 @@
 <div class="card-parent-feedback">
   <h1>Couche</h1>
   <% if @diaper_feedback.nil? %>
-    <p class="no-feedback">Pas de feedback ce jour</p>
+    <p class="no-feedback">Pas de transmission ce jour</p>
   <% else %>
     <% if @diaper_feedback.rating == nil %>
       <div class="feedback-icon">
