@@ -25,4 +25,8 @@ class Child < ApplicationRecord
   def name
     "#{first_name} - #{last_name}"
   end
+
+  def filiation_names(current_user)
+    users.excluding(current_user).pluck(:first_name).join(", ")
+  end
 end

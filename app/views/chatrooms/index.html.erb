@@ -1,17 +1,21 @@
 <%= render "shared/navbar" %>
 <div class="container-chatroom">
-  <h1 class="title-chatrooms">Mes conversations</h1>
   <hr>
-  <%= link_to "Nouvelle conversation", new_chatroom_path, class: "button" %>
   <% @chatrooms.each do |chatroom| %>
     <div class="card-chatroom position-relative">
-      <%= link_to chatroom.name.capitalize, chatroom_path(chatroom) %>
-      <small class="participants"><%= chatroom.child.name %> / <%= current_user.name %></small>
+      <%= image_tag "stroller.png" %>
+      <div class="baby-participants-names">
+        <%= link_to chatroom.name.capitalize, chatroom_path(chatroom) %>
+        <p class="participants"><%= chatroom.child.filiation_names(current_user)%></p>
+      </div>
       <p class="poubelle">
         <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, chatroom_path(chatroom), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
       </p>
       <span data-notification-subscription-target="notifIndex" data-chatroom-id="<%=chatroom.id%>" class="badge position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><% if @notifications.from_chatroom(chatroom).any? %> <%end%></span>
     </div>
   <% end %>
+  <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     <%= link_to "+", new_chatroom_path, class: "button" %>
+  </button>
 </div>
 <%= render "shared/navmenu" %>
