@@ -143,7 +143,7 @@
 }
 
 .container-chats {
-  margin: 150px 5px 5px 5px;
+  margin: 100px 5px 5px 5px;
 }
 
 .container-chatroom {
@@ -203,4 +203,10 @@
 .btn-chat {
   padding: 0 10px;
   background-color: $chat-background-green;
+}
+
+#chatroom_name {
+  width: 80%;
+  margin: 35px auto;
+  background-color: $input-background-green;
 }
