@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
       )
 
       @child = @chatroom.child
-      @users = @child.users.excluding(current_user)
+      @users = @child.accepted_users.excluding(current_user)
       @users.each do |user|
         @notif = Notification.create(notifiable: @message, receiver: user, sender: current_user)
         NotificationChannel.broadcast_to(

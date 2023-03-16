@@ -1,6 +1,9 @@
 class Child < ApplicationRecord
+  has_many :accepted_filiations, -> { accepted }, class_name: "Filiation"
+  has_many :accepted_users, through: :accepted_filiations, source: :user
+
+
   has_many :filiations, dependent: :destroy
-  has_many :users, through: :filiations
   has_many :child_posts, dependent: :destroy
   has_many :posts, through: :child_posts
   has_many :feedbacks, dependent: :destroy
@@ -27,6 +30,6 @@ class Child < ApplicationRecord
   end
 
   def filiation_names(current_user)
-    users.excluding(current_user).pluck(:first_name).join(", ")
+    accepted_users.excluding(current_user).pluck(:first_name).join(", ")
   end
 end
