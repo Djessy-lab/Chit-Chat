@@ -23,15 +23,22 @@
 }
 
 .paper-link {
+  margin: 10px;
+  padding: 10px;
+  border-radius: $border-radius;
+  background-color: white;
+  width: 96%;
   display: flex;
-  justify-content: space-between;
-  font-size: 27px;
-  margin: 0 auto;
-  width: 200px;
-}
+  align-items: center;
 
+  img {
+    height: 30px;
+    padding: 0 10px;
+  }
 
-.paper-button {
-  text-align: center;
-  margin-top: 60px;
+  p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0 10px;
+  }
 }
