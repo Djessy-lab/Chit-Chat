@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def name
-    "#{first_name} - #{last_name}"
+    "#{first_name} #{last_name}"
   end
 
   # include PgSearch::Model
