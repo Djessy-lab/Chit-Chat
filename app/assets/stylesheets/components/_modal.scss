@@ -13,6 +13,12 @@
   margin-top: -10px;
 }
 
+.children-post-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .modal-footer {
   background-color: #aedac5;
@@ -31,6 +37,10 @@
 }
 
 .select-child {
+  margin: 0 auto;
+  padding: 0;
+
+
   input:checked + label {
 
     img {
@@ -40,5 +50,11 @@
     p {
       font-weight: 600;
     }
+  }
+
+  .collection_check_boxes {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
   }
 }

@@ -26,8 +26,6 @@
             </div>
               <%= simple_form_for post do |f| %>
                 <div class="modal-body">
-                  <%= f.input :content, label: "Contenu" %>
-                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
                   <fieldset class="mb-3 check_boxes optional post_children">
                       <input type="hidden" name="post[child_ids][]" value="" autocomplete="off" >
                         <div class="children-post-select">
@@ -42,6 +40,8 @@
                         <% end %>
                       </div>
                   </fieldset>
+                  <%= f.input :content, label: "Contenu" %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos" %>
                 </div>
                 <div class="modal-footer">
                   <%= f.button :submit, "Valider" %>
