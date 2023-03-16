@@ -8,9 +8,9 @@
             <% current_user.children.each do |child| %>
             <div class="form-check select-child">
               <input class="form-check-input check_boxes optional visually-hidden"
-                     type="radio"
-                     value="<%= child.id %>"
-                     name="paper[child_id]" id="paper_child_id_<%= child.id %>">
+                    type="radio"
+                    value="<%= child.id %>"
+                    name="paper[child_id]" id="paper_child_id_<%= child.id %>">
               <label class="form-check-label collection_check_boxes" for="paper_child_id_<%= child.id %>">
                 <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
                 <p><%= child.first_name %></p>

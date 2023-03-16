@@ -2,7 +2,8 @@ class PapersController < ApplicationController
   before_action :set_papers, only: %i[show destroy]
 
   def index
-    @papers = Paper.all
+    @child = Child.find(params[:child_id])
+    @papers = @child.papers
   end
 
   def show
