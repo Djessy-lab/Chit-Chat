@@ -1,9 +1,13 @@
-<%= turbo_frame_tag "papers", class: "feedback-card" do %>
-  <% papers.each do |paper| %>
-    <div class="paper-link">
-      <%= link_to paper.name.capitalize, child_paper_path(child, paper), data: {turbo: "false"} %>
-      <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, paper_path(paper), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" } %>
-    </div>
-  <% end %>
-  <div class="paper-button"><%= link_to "Ajouter un document", new_paper_path, class: "button", data: {turbo: "false"} %></div>
+<%= turbo_frame_tag "papers" do %>
+  <div class="feedback-card">
+    <% papers.each do |paper| %>
+        <%= link_to child_paper_path(child, paper), class: "paper-link", data: {turbo: "false"} do %>
+          <%= image_tag "papers.png" %>
+          <p><%= paper.name.capitalize %></p>
+        <% end %>
+    <% end %>
+    <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <%= link_to "+", new_paper_path, class: "button", data: {turbo: "false"} %>
+    </button>
+  </div>
 <% end %>

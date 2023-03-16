@@ -1,29 +1,29 @@
 <%= render "shared/navbar" %>
 
-  <% if current_user.nanny? %>
-    <div class="select-children" >
-      <% @children.each do |child| %>
-        <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
-        <div class="select-child-feed" data-controller="select-child-feed"  data-select-child-feed-target="background" data-action="click->select-child-feed#changeColor">
-            <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
-            <p><%= child.first_name %></p>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
-    <%= turbo_frame_tag "feedbacks" do %>
-      <p class="no-feedback">Sélectionner un enfant pour compléter ses transmissions</p>
-    <% end %>
-  <% else %>
+<% if current_user.nanny? %>
+  <div class="select-children" >
     <% @children.each do |child| %>
-      <div data-controller="calendar" data-calendar-url-value="<%= child_parent_feedbacks_path(child) %>">
-        <div class="calendar" >
-        <p>Sélectionner une date</p>
-        <input id="date-calendar" data-calendar-target="date" data-action="change->calendar#submit" >
-        </div>
-        <div data-calendar-target="input"></div>
+      <%= link_to child_feedbacks_path(child), data: { turbo_frame: "feedbacks" } do %>
+      <div class="select-child-feed" data-controller="select-child-feed"  data-select-child-feed-target="background" data-action="click->select-child-feed#changeColor">
+          <%= cl_image_tag child.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "avatar"%>
+          <p><%= child.first_name %></p>
       </div>
+      <% end %>
     <% end %>
+  </div>
+  <%= turbo_frame_tag "feedbacks" do %>
+    <p class="no-feedback">Sélectionner un enfant pour compléter ses transmissions</p>
   <% end %>
+<% else %>
+  <% @children.each do |child| %>
+    <div data-controller="calendar" data-calendar-url-value="<%= child_parent_feedbacks_path(child) %>">
+      <div class="calendar" >
+      <p>Sélectionner une date</p>
+      <input id="date-calendar" data-calendar-target="date" data-action="change->calendar#submit" >
+      </div>
+      <div data-calendar-target="input"></div>
+    </div>
+  <% end %>
+<% end %>
 
 <%= render "shared/navmenu" %>
