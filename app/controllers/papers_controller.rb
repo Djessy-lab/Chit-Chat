@@ -3,7 +3,7 @@ class PapersController < ApplicationController
 
   def index
     @child = Child.find(params[:child_id])
-    @papers = @child.papers
+    @papers = @child.papers.order(created_at: :desc)
   end
 
   def show
