@@ -2,7 +2,7 @@
   <p class="fleche"><%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, chatrooms_path %></p>
 <div class="container-chats">
   <%= simple_form_for @chatroom do |f| %>
-  <div class="center-dev"><%= f.label "Nouvelle conversation" %></div>
+  <div class="center-dev"><%= f.label "Nom de la conversation" %></div>
   <%= f.input :name, label: false %>
     <div class="modal-body">
       <fieldset class="mb-3 check_boxes optional post_children">
