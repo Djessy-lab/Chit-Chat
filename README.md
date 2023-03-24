@@ -25,4 +25,8 @@
 </ul>
 <p>---</p>
 <p>You can check it here : https://www.chit-chat.website/</p>
-<img src="app/assets/images/feed.gif" width="200" height="500"/><img src="app/assets/images/message.gif" width="200" height="500"/><img src="app/assets/images/mobile.gif" width="200" height="500"/>
+<div style="display: flex">
+<img src="app/assets/images/feed.gif" width="200" height="500"/>
+<img src="app/assets/images/message.gif" width="200" height="500"/>
+<img src="app/assets/images/mobile.gif" width="200" height="500"/>
+</div>
