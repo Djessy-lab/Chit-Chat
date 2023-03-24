@@ -25,10 +25,4 @@
 </ul>
 <p>---</p>
 <p>You can check it here : https://www.chit-chat.website/</p>
-![Vidéo of Chit Chat](app/assets/images/video1.gif)
-![Vidéo of Chit Chat](app/assets/images/video2.gif)
-![Screenshot of Chit Chat](app/assets/images/screenshot-ChitChat1.png)
-![Screenshot of Chit Chat](app/assets/images/screenshot-ChitChat2.png)
-![Screenshot of Chit Chat](app/assets/images/screenshot-ChitChat3.png)
-![Screenshot of Chit Chat](app/assets/images/screenshot-ChitChat4.png)
-![Screenshot of Chit Chat](app/assets/images/screenshot-ChitChat5.png)
+<img src="app/assets/images/feed.gif" width="200" height="500"/><img src="app/assets/images/message.gif" width="200" height="500"/><img src="app/assets/images/mobile.gif" width="200" height="500"/>
