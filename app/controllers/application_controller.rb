@@ -3,14 +3,6 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :notifications_context
-
-
-  def notifications_context
-    @notifications = Notification.where(receiver: current_user).unread
-  end
-
-
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role, :photo])
