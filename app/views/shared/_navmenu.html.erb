@@ -1,4 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navmenu background-white">
+
+ <div class="fab">
+
+  <div class="button-chat">
+    <%= link_to '<i class="fa-regular fa-comment"></i>'.html_safe, chatrooms_path %>
+    <span data-notification-subscription-target="notifButton" class="badge position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><% if @notifications.any? %> <%end%></span>
+  </div>
+   <% if current_user.nanny? && @post%>
+    <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    +
+    </button>
+    <%= render "posts/modal_create", post: @post %>
+  <% end %>
+</div>
+
   <div class="container-fluid">
     <div class="navmenu-icon" >
     <%= link_to "<i class='fa-solid fa-house'></i>".html_safe, posts_path %>
