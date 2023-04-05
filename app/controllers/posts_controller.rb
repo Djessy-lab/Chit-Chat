@@ -16,7 +16,6 @@ class PostsController < ApplicationController
     @comment = Comment.new
     # action comment_likes#new
     @comment_like = CommentLike.new
-    @notifications = Notification.where(receiver: current_user).unread
   end
 
   def create

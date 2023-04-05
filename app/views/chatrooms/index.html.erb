@@ -14,7 +14,7 @@
       <span data-notification-subscription-target="notifIndex" data-chatroom-id="<%=chatroom.id%>" class="badge position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><% if @notifications.from_chatroom(chatroom).any? %> <%end%></span>
     </div>
   <% end %>
-  <button type="button" class="btn plus fs-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn plus fs-2 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
      <%= link_to "+", new_chatroom_path %>
   </button>
 </div>
