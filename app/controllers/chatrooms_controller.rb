@@ -1,14 +1,15 @@
 class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: %i[show destroy]
 
-
   def index
     @chatrooms = current_user.chatrooms
+    @notifications = Notification.where(receiver: current_user).unread
   end
 
   def show
     @message = Message.new
-    @notifications.from_chatroom(@chatroom).each do |notification|
+    @notifications = Notification.where(receiver: current_user).unread.from_chatroom(@chatroom)
+    @notifications.each do |notification|
       notification.update(read_at: Date.today)
     end
   end

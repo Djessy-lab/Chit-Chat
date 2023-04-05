@@ -105,9 +105,6 @@
 
 
 .button-chat {
-  display:flex;
-  justify-content: center;
-  align-items: center;
   border: none;
   background-color: $button-green;
   text-align: center;
@@ -115,7 +112,7 @@
   color: white;
   font-weight: bolder;
   font-size: 34px;
-  // position: fixed;
+  position: fixed;
   bottom: 12vh;
   left: 75vw;
   height: 50px;
@@ -220,7 +217,7 @@
 }
 
 #new_message {
-  // position: fixed;
+  position: fixed;
   bottom: 0;
   z-index: 20;
   background-color: white;
